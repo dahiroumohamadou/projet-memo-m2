@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<!-- saved from url=(0134)https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/ -->
+<html lang="fr" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async="" type="text/javascript" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/cmp2.js.téléchargement"></script><script async="" type="text/javascript" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/choice.js.téléchargement"></script><script async="" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KP5YVWZDRL');
+</script>
+	
+	<title>Déploiement d'une application web full stack Angular-SpringBoot dans Cloud Foundry</title>
+	<link rel="canonical" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/">
+	<meta name="generator" content="developpez-com">
+	<meta name="description" content="Java, Angular, Spring, Spring Boot, Cloud, Cloud Computing, Cloud Foundry, SAP Cloud Platform">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry">
+	<meta property="og:image" content="https://www.developpez.com/template/images/logo.png">
+	<meta property="og:url" content="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:site_name" content="Developpez.com">
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:url" content="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/">
+	<meta property="twitter:description" content="Java, Angular, Spring, Spring Boot, Cloud, Cloud Computing, Cloud Foundry, SAP Cloud Platform">
+	<meta property="twitter:title" content="Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry">
+	<meta property="twitter:image" content="https://www.developpez.com/template/images/logo.png">
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/jquery-3.4.1.js.téléchargement"></script>
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/popper.js.téléchargement"></script>
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/bootstrap.bundle.min.js.téléchargement"></script>
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/bootstrap.js.téléchargement"></script>
+	<link rel="stylesheet" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/bootstrap.css">
+	<link rel="stylesheet" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/bootstrap-social.css">
+	<link rel="stylesheet" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/all.min.css">
+	<link rel="stylesheet" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/fontawesome.min.css">
+	<script async="" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/compteurarticle"></script>
+	<script async="" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/saved_resource"></script>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+<script type="text/javascript" async="true">
+(function() {
+  var host = 'developpez.com';
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', 'rZ6Mx73PT_R7Q', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+	<script async="async" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/f.txt"></script>
+	<script>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+	</script>
+	<script async="" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/f(1).txt"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="https://gkemayo.developpez.com/template/favicon.ico">
+	<link rel="image_src" href="https://www.developpez.com/facebook-icon.png">
+	<link rel="stylesheet" type="text/css" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/gabarit.css">
+	<link rel="stylesheet" type="text/css" media="print" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/printer.css">
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/gabarit.js.téléchargement"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/developpez-kit-generation.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/code.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/lightbox.css">
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/developpez-kit-generation.js.téléchargement"></script>
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/lightbox.js.téléchargement"></script><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/f(2).txt" async=""></script><link href="https://securepubads.g.doubleclick.net/pagead/managed/dict/m202602050101/gpt" rel="compression-dictionary"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><style type="text/css"> .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #368bd6 !important;    border-color: transparent !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #368bd6 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  } </style>
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/LecteurSWF.js.téléchargement"></script>
+	<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/fonctions-kit.js.téléchargement"></script>
+	<meta name="author" content="Georges KEMAYO">
+	<!--[if lt IE 9]>
+	<script src="/template/kit/html5_ie.js"></script>
+	<![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie9.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/template/kit/ie8.css" /><![endif]-->
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/template/kit/ie7.css" /><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/template/kit/ie6.css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/template/kit/html5_ie.js"></script><![endif]-->
+
+<style type="text/css">.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q{display:block!important;border:1px solid #cdcfd2!important;background-color:#fff!important;color:#373a3d!important;width:100vw!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-24GeGuJgk9LrMLp7qVvlyz{background:#6a7e89!important;color:#fff!important;padding:10px!important;font-size:18px!important;font-family:sans-serif!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-KVjdulkCFfUZps29EbgAC{background:#f3f6f8!important;border-bottom:1px solid #cdcfd2!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-KVjdulkCFfUZps29EbgAC>*{margin-right:10px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1OeZ2PQ98oAp6Vc5mMc6V5{list-style:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-vCwYmWF_l83ScZBrGnRoi,.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1OeZ2PQ98oAp6Vc5mMc6V5{margin:0!important;padding:0!important;width:100%!important;display:block!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-vCwYmWF_l83ScZBrGnRoi:not(:last-child){border-bottom:1px solid #cdcfd2!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1XQZkb-FlHWABUp4_uShaZ{color:inherit!important;cursor:pointer!important;width:100%!important;display:inline-block!important;margin:10px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1XTzMvb2XKitWz0mFLlyyp{margin:5px!important;display:block!important;width:auto!important;white-space:pre!important;overflow-x:scroll!important;background:inherit!important;color:inherit!important;font-family:monospace}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1XTzMvb2XKitWz0mFLlyyp:not(.IN-e146f606-483d-4824-a598-79a778fddfb4-39QUvFFn5B7GMcqMQkOXZ3){display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-295DY3nO0DbJWMsOqmjCli{background:#f5f5f5!important;color:#5a5a5a!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-1aQZwu6CUzAf2zUcI7tg0Q .IN-e146f606-483d-4824-a598-79a778fddfb4-295DY3nO0DbJWMsOqmjCli{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-38EPFyKXMtoP12rPlmrHxs{background:#e6f7ff!important;color:#006097!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-3W4ZnQjhoGfT1gTNcqRXdi .IN-e146f606-483d-4824-a598-79a778fddfb4-38EPFyKXMtoP12rPlmrHxs{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-HGYnfzlmgOZ-l7eANhQe_{background:#fff3ea!important;color:#993a00!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-24e52A11B1UIErbKHtBmqc .IN-e146f606-483d-4824-a598-79a778fddfb4-HGYnfzlmgOZ-l7eANhQe_{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-jji74ZzulHScD0OAD_G7h{background:#fef2f1!important;color:#b10823!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-28jAOA7cDee-95LvwGsOP- .IN-e146f606-483d-4824-a598-79a778fddfb4-jji74ZzulHScD0OAD_G7h{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu{background-color:#0073b1!important;border:0!important;border-radius:2px!important;box-sizing:border-box!important;color:#fff!important;cursor:pointer!important;display:inline-block!important;font-family:-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif!important;font-weight:600!important;overflow:hidden!important;outline-width:2px!important;position:relative!important;text-align:center!important;text-decoration:none!important;vertical-align:middle!important;white-space:nowrap!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu:disabled{cursor:not-allowed!important;opacity:.7!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu:not(:disabled):not(.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy):hover{background-color:#006097!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu:not(:disabled):not(.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy):active{background-color:#004b7c!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy{background-color:#fff!important;color:#0073b1!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy:not(:disabled):hover{color:#006097!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy:not(:disabled):active{color:#004b7c!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon{display:inline-block!important;height:100%!important;vertical-align:top!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon>svg{pointer-events:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr{font-size:10px!important;height:16px!important;line-height:16px!important;padding:0 6px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr>xdoor-icon{margin-left:-6px!important;margin-right:3px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr>xdoor-icon>svg{height:16px!important;width:16px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-6px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6{font-size:11px!important;height:20px!important;line-height:20px!important;padding:0 7px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6>xdoor-icon,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon{margin-left:-7px!important;margin-right:3.5px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6>xdoor-icon>svg,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon>svg{height:20px!important;width:20px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-7px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG{font-size:14px!important;height:24px!important;line-height:24px!important;padding:0 12px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG>xdoor-icon{margin-left:-12px!important;margin-right:6px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG>xdoor-icon>svg{height:24px!important;width:24px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-12px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q{font-size:16px!important;height:32px!important;line-height:32px!important;padding:0 16px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q>xdoor-icon{margin-left:-16px!important;margin-right:8px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q>xdoor-icon>svg{height:32px!important;width:32px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-16px!important}</style></head>
+<body>
+	<header>
+
+	<div id="gabarit_b1">
+		<div id="gabarit_connexion">
+	<form>
+		<div><span>Identifiant</span><input type="text" class="form_input form-control" id="formloginConnexion"><span>Mot de passe</span><input type="password" class="form_input form-control" id="formpassConnexion"><input type="button" value="Connexion" id="formbuttonConnexion" class="btn btn-primary"><div id="loadingConnexion" class="spinner-border text-light" role="status"><span class="sr-only">Loading...</span></div></div><a id="mdpoublier" href="http://www.developpez.net/forums/login.php?do=lostpw">Mot de passe oublié ?</a><a id="inscriptionConnexion" href="https://www.developpez.net/forums/inscription/" class="btn btn-primary">Je m'inscris ! (gratuit)</a>	
+	</form>
+</div>		<div id="gabarit-barreRecherche" style="display:none;"><form action="https://www.google.fr/" target="_blank">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-8110924381468607:6449306375">
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" name="q" size="12">
+    <input type="submit" name="sa" value="Rechercher">
+  </div>
+</form></div>
+<div id="gabarit-new-logo" role="gabarit-accueil">
+	<a href="https://www.developpez.com/"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/logo-dvp-h55.png" alt="logo dvp" width="48" height="55"></a>
+	<a href="https://www.developpez.com/"><span class="dvp"></span></a>
+	<span class="triangle"></span>
+</div>
+<div id="gabarit_recherche">
+	<div class="gabarit-btn-menu profil dn" role="gabarit-profil" title="Se connecter"></div>
+	<div class="gabarit-btn-menu profil dn" role="gabarit-connecter"><span></span>
+	<a id="gabaritRepereLogout" class="btn btn-primary" title="Se déconnecter"></a></div>
+	<div class="gabarit-btn-menu options" role="gabarit-options" title="Options"></div>
+	<div class="gabarit-btn-menu contacts" role="gabarit-contacts" title="Nous contacter"></div>
+	<div class="gabarit-btn-menu recherche" role="gabarit-recherche" title="Rechercher"></div>
+</div>
+
+<div id="gabarit_superieur">
+	<nav>
+	<ul>
+		<li><a href="https://www.developpez.net/forums/" title="">Forums</a></li>
+		<li><a href="https://general.developpez.com/cours/" title="">Tutoriels</a></li>
+		<li><a href="https://general.developpez.com/faq/" title="">FAQ</a></li>
+		<li><a href="https://www.developpez.net/forums/blogs/" title="">Blogs</a></li>
+		<li><a href="https://chat.developpez.com/" title="">Chat</a></li>
+		<li><a href="https://www.developpez.com/newsletter/">Newsletter</a></li>
+		<li><a href="https://emploi.developpez.com/" title="">Emploi</a></li>
+		<li><a href="https://etudes.developpez.com/">Études</a></li>
+		<li><a href="https://droit.developpez.com/" title="">Droit</a></li>
+		<li><a href="https://club.developpez.com/">Club</a></li>
+	</ul>
+	</nav>
+</div>	</div>
+	<nav>
+
+<ul id="gabarit_menu" style="padding-left:56px;">
+	<li><a href="https://www.developpez.com/" data-idrub="1" data-niv="1" style="padding:0;"><div id="gabarit_home"></div></a>
+			</li>
+	<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">DI/DSI Solutions d'entreprise<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">DI/DSI Solutions d'entreprise</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">BPM</a></li>
+				<li><a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">Business Intelligence</a></li>
+				<li><a href="https://data-science.developpez.com/" data-idrub="151" data-niv="2">Data Science</a></li>
+				<li><a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">ERP / PGI</a></li>
+				<li><a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">CRM</a></li>
+				<li><a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">SAS</a></li>
+				<li><a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">SAP</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://droit.developpez.com/" data-idrub="132" data-niv="2">Droit informatique et entreprise</a></li>
+				<li><a href="https://onlyoffice.developpez.com/" data-idrub="149" data-niv="2">OnlyOffice</a></li>
+			</ul></li>
+	<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="1" class="gabarit_selection">Cloud<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">Cloud Computing</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Azure</a></li>
+				<li><a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">IBM Cloud</a></li>
+			</ul></li>
+	<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="1">IA<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">Intelligence artificielle</a></li>
+			</ul></li>
+	<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM<!--<span class="gabarit_tooltip">Cycle de vie du logiciel</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">ALM</a></li>
+				<li><a href="https://agile.developpez.com/" data-idrub="146" data-niv="2">Agile</a></li>
+				<li><a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">Merise</a></li>
+				<li><a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">UML</a></li>
+			</ul></li>
+	<li><a href="https://microsoft.developpez.com/" data-idrub="150" data-niv="1">Microsoft<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://microsoft.developpez.com/" data-idrub="150" data-niv="2">Microsoft</a></li>
+				<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">.NET</a></li>
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">ASP.NET</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">VB.NET</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Azure</a></li>
+			</ul></li>
+	<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java<!--<span class="gabarit_tooltip">Plateforme et langage Java</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="2">Java</a></li>
+				<li><a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">Java Web</a></li>
+				<li><a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">Spring</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+			</ul></li>
+	<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web<!--<span class="gabarit_tooltip">Développement Web et Webmarketing</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="2">Développement et hébergement Web</a></li>
+				<li><a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">AJAX</a></li>
+				<li><a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">Apache</a></li>
+				<li><a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">ASP</a></li>
+				<li><a href="https://css.developpez.com/" data-idrub="51" data-niv="2">CSS</a></li>
+				<li><a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">Dart</a></li>
+				<li><a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">Flash / Flex</a></li>
+				<li><a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">JavaScript</a></li>
+				<li><a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">NodeJS</a></li>
+				<li><a href="https://php.developpez.com/" data-idrub="9" data-niv="2">PHP</a></li>
+				<li><a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">Ruby &amp; Rails</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">Web sémantique</a></li>
+				<li><a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">Webmarketing</a></li>
+				<li><a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">(X)HTML</a></li>
+			</ul></li>
+	<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI<!--<span class="gabarit_tooltip">Environnements de Développement Intégré</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">EDI</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">Delphi</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">JetBrains</a></li>
+				<li><a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">LabVIEW</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+				<li><a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">MATLAB</a></li>
+				<li><a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">Scilab</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">WinDev</a></li>
+				<li><a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">Visual Basic 6</a></li>
+				<li><a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">Lazarus</a></li>
+				<li><a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">Qt Creator</a></li>
+			</ul></li>
+	<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1">Programmation<!--<span class="gabarit_tooltip">Programmation et langages de programmation applicatifs</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">Programmation</a></li>
+				<li><a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">Débuter - Algorithmique</a></li>
+				<li><a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">2D - 3D - Jeux</a></li>
+				<li><a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">Assembleur</a></li>
+				<li><a href="https://c.developpez.com/" data-idrub="3" data-niv="2">C</a></li>
+				<li><a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">C++</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://d.developpez.com/" data-idrub="123" data-niv="2">D</a></li>
+				<li><a href="https://go.developpez.com/" data-idrub="124" data-niv="2">Go</a></li>
+				<li><a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">Kotlin</a></li>
+				<li><a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">Objective C</a></li>
+				<li><a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">Pascal</a></li>
+				<li><a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">Perl</a></li>
+				<li><a href="https://python.developpez.com/" data-idrub="27" data-niv="2">Python</a></li>
+				<li><a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">Rust</a></li>
+				<li><a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">Swift</a></li>
+				<li><a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">Qt</a></li>
+				<li><a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">XML</a></li>
+				<li><a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">Autres</a></li>
+			</ul></li>
+	<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD<!--<span class="gabarit_tooltip">Systèmes de Gestion de Bases de Données</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">SGBD &amp; SQL</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://data-science.developpez.com/" data-idrub="151" data-niv="2">Data Science</a></li>
+				<li><a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">DB2</a></li>
+				<li><a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">Firebird</a></li>
+				<li><a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">InterBase</a></li>
+				<li><a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">MySQL</a></li>
+				<li><a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">NoSQL</a></li>
+				<li><a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">PostgreSQL</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">Sybase</a></li>
+				<li><a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">SQL-Server</a></li>
+				<li><a href="https://mongodb.developpez.com/" data-idrub="148" data-niv="2">MongoDB</a></li>
+			</ul></li>
+	<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office<!--<span class="gabarit_tooltip">Bureautique pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">Excel</a></li>
+				<li><a href="https://word.developpez.com/" data-idrub="76" data-niv="2">Word</a></li>
+				<li><a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">Outlook</a></li>
+				<li><a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">PowerPoint</a></li>
+				<li><a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">SharePoint</a></li>
+				<li><a href="https://project.developpez.com/" data-idrub="99" data-niv="2">Microsoft Project</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+				<li><a href="https://onlyoffice.developpez.com/" data-idrub="149" data-niv="2">OnlyOffice</a></li>
+			</ul></li>
+	<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles<!--<span class="gabarit_tooltip">Logiciels et matériels mobiles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">Mobiles</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">iOS</a></li>
+			</ul></li>
+	<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes<!--<span class="gabarit_tooltip">Logiciels et matériels systèmes</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">Systèmes</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">Linux</a></li>
+				<li><a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">Arduino</a></li>
+				<li><a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">Hardware</a></li>
+				<li><a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">HPC</a></li>
+				<li><a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">Mac</a></li>
+				<li><a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">Raspberry Pi</a></li>
+				<li><a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">Réseau</a></li>
+				<li><a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">Green IT</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">Systèmes embarqués</a></li>
+				<li><a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">Virtualisation</a></li>
+				<li><a href="https://quantique.developpez.com/" data-idrub="153" data-niv="2">Informatique quantique</a></li>
+				<li><a href="https://crypto.developpez.com/" data-idrub="154" data-niv="2">Crypto, NFT &amp; Blockchain</a></li>
+			</ul></li>
+</ul>
+
+<ul id="gabarit_barre1"><li class="gabarit_selection"><a href="https://cloud-computing.developpez.com/">Cloud</a></li><li><a href="https://oracle.developpez.com/">Oracle</a></li><li><a href="https://windows-azure.developpez.com/">Azure</a></li><li><a href="https://ibmcloud.developpez.com/">IBM Cloud</a></li></ul>
+
+<div id="gabarit_barre2">
+	<a class="gabarit_social gabarit_facebook" href="http://www.facebook.com/pages/Cloud-Computing-Developpezcom/150306298356772" target="_blank" title="Retrouver Developpez sur Facebook"></a>
+	<a class="gabarit_social gabarit_twitter" href="http://twitter.com/cloud_DVP" target="_blank" title="Retrouver Developpez sur Twitter"></a>
+	<a class="gabarit_social gabarit_rss" href="http://cloud-computing.developpez.com/index/rss" target="_blank" title="Flux RSS"></a>
+	<ul>
+<li><a href="https://www.developpez.net/forums/f1519/logiciels/solutions-dentreprise/cloud-computing/">Forum Cloud Computing</a></li><li><a href="https://cloud-computing.developpez.com/livres/">Livres Cloud Computing</a></li><li><a href="https://cloud-computing.developpez.com/cours-tutoriels/">Tutoriels Cloud Computing</a></li><li><a href="http://windows-azure.developpez.com/">Microsoft Azure</a></li><li><a href="http://ibmcloud.developpez.com/">IBM Cloud</a></li>	</ul>
+</div>
+
+</nav>
+
+
+	</header>
+	<section>
+
+	<div id="gabarit_pubBB">
+		<div id="ul103io0p" class="dvpb0" style="display: inline-block; width: 728px; height: 90px"></div>
+	</div>
+
+	<div class="contenuPage">
+		<article class="ArticleComplet" itemscope="" itemtype="https://schema.org/Article">
+<meta itemprop="genre" content="informatique">
+<meta itemprop="inLanguage" content="fr-FR">
+		<h1 class="titre-article" itemprop="name">Tutoriel sur le déploiement d'une application web full stack Angular-SpringBoot dans Cloud Foundry</h1><section>
+
+<nav class="nav-sommaire" role="navigation">
+<h2 class="TitreHeader ToggleGecko">Table des matières<img class="ToggleImgPlier" title="Plier" alt="Plier" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/fleche-haut-bleue.png"><img class="ToggleImgDeplier" title="Déplier" alt="Déplier" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/fleche-bas-bleue.png" style="display:none;"></h2>
+<ul id="nav_sommaire_ul_principal" class="nav-sommaire-ul">
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LI">I. Préambule et Objectifs</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LII">II. Le Front-end</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LIII">III. Le Back-end</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LIV">IV. Installation des outils d'accès à Cloud Foundry</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LV">V. Créer un compte SAP Cloud Platform</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI">VI. Déployez l'application dans SAP Cloud Froundry</a><ul class="nav-sommaire-ul IndentationVI">
+      
+      <li><a class="summaryIndent1" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI-A">VI-A. Utilisation du CLI pour se connecter à son compte</a></li>
+      <li><a class="summaryIndent1" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI-B">VI-B. Provisionner le service Postgresql </a></li>
+      <li><a class="summaryIndent1" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI-C">VI-C. Définir le fichier manifest.yml</a></li>
+      <li><a class="summaryIndent1" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI-D">VI-D. Publier l'application dans SAP Cloud Foundry</a></li>
+      <li><a class="summaryIndent1" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI-E">VI-E. Vérifier la bonne livraison</a></li>
+      <li><a class="summaryIndent1" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVI-F">VI-F. Démo de l'application</a></li>
+    </ul></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVII">VII. Annexe</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LVIII">VIII. Conclusion</a></li>
+    <li><a class="summaryIndent0" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#LIX">IX. Remerciements</a></li>
+  </ul></nav>
+
+<div class="contenu">
+
+<section itemprop="about" class="SectionSynopsis">
+    <p>
+		    Dans cet article, je vous présente comment déployer dans Cloud Foundry une application web développée suivant une architecture Microservices, disposant d'un module Front-end développé en Angular, et un module Back-end développé en Java/Spring Boot. J'utiliserai l'environnement Cloud Foundry du <span class="italique">provider</span> SAP Cloud Platform.<br><br>
+		    Ce cours suppose que le lecteur a déjà quelques notions de base sur Cloud Foundry, Angular et Spring Boot.
+		</p>
+    <p><br>  
+		   Réagissez à cet article en faisant vos remarques ici&nbsp;: <a class="lienforum" href="https://www.developpez.net/forums/showthread.php?t=2105064">2&nbsp;commentaires</a> <img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/kitstars-5-0.png" width="66" height="14" style="border: none" alt="Donner une note à l´article (5)"></p>
+  <p class="TextNbrVues">Article lu <span id="NbrVues">&nbsp;</span> fois.</p></section><div class="InfoAuthArtBook">
+	<section class="SectionAuteurs">
+	<h2 class="TitreHeader">L'auteur</h2>
+<p class="auteur" itemprop="name" itemscope="" itemtype="http://schema.org/Person"><a itemprop="url" class="auteur" href="https://www.developpez.net/forums/u447243/misterkool/"><span itemprop="author">Georges KEMAYO</span></a><a class="homepage" href="https://www.developpez.com/user/profil/447243/misterkool/"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/pro.png" title="Profil Pro" alt="Profil Pro" style="vertical-align:middle;"></a><a class="homepage" href="https://gkemayo.developpez.com/"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/kitbm-site-personnel.png" title="Les articles de Georges KEMAYO" alt="Site personnel" style="vertical-align:middle;"></a></p>
+</section>
+<section class="SectionInformationArticle">
+<h2 class="TitreHeader">L'article</h2>
+
+<p class="InfoArticle">Publié&nbsp;le&nbsp;<span itemprop="datePublished">16&nbsp;mars&nbsp;2020&nbsp;</span></p>
+    
+<p class="InfoArticle"><img alt="Public visé : tout le monde" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/public-vise-1.png"></p>
+  <p>
+<span class="lientelechargementpdf"><a class="lientelechargement" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/cloud-foundry.pdf" title="Télécharger la version PDF de cet article.">Version PDF</a></span>
+<span class="lientelechargementzip"><a class="lientelechargement" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/cloud-foundry.zip" title="Télécharger la version HTML de cet article.">Version hors-ligne</a></span></p>
+<p><span class="lientelechargementebook"><a class="lientelechargement" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/cloud-foundry.epub" title="Télécharger la version ePub de l&#39;article compatible avec la plupart des liseuses non Kindle (Amazon).">ePub</a></span>, <span class="lientelechargementebook"><a class="lientelechargement" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/cloud-foundry.azw" title="Télécharger la version Azw spécifique aux liseuses Kindle (Amazon).">Azw</a></span> et <span class="lientelechargementebook"><a class="lientelechargement" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/cloud-foundry.mobi" title="Télécharger la version Mobi de l&#39;article compatible avec les liseuses Amazon.">Mobi</a></span></p>
+</section>
+<section class="SectionBookmarks">
+<h2 class="TitreHeader">Liens&nbsp;sociaux</h2>
+<div class="InfoBookmarks"><a title="Viadeo" href="http://www.viadeo.com/shareit/share/?url=https%3A%2F%2Fgkemayo.developpez.com%2Ftutoriels%2Fcloud-computing%2Fdeploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry%2F&amp;Title=Tutoriel+sur+le+d%C3%83%C2%A9ploiement+d%27une+application+web+full+stack+Angular-SpringBoot+dans+Cloud+Foundry" rel="nofollow"><img alt="Viadeo" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/kitbm-viadeo.png"></a>&nbsp;<a title="Twitter" href="http://twitter.com/timeline/home?status=https%3A%2F%2Fgkemayo.developpez.com%2Ftutoriels%2Fcloud-computing%2Fdeploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry%2F" rel="nofollow"><img alt="Twitter" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/kitbm-twitter.png"></a>&nbsp;<a title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fgkemayo.developpez.com%2Ftutoriels%2Fcloud-computing%2Fdeploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry%2F" rel="nofollow"><img alt="Facebook" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/kitbm-facebook.png"></a>&nbsp;<a title="Google +" href="https://plus.google.com/share?url=https%3A%2F%2Fgkemayo.developpez.com%2Ftutoriels%2Fcloud-computing%2Fdeploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry%2F" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&#39;);return false;"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/gplus-16.png" alt="Share on Google+"></a>&nbsp;<script src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/in.js.téléchargement">lang: fr_FR</script>
+			<script type="IN/Share" data-url="$url"></script>&nbsp;</div>
+</section></div><section itemprop="articleBody" class="articleBody">
+    
+		<h2 class="TitreSection0" id="LI">I. Préambule et Objectifs<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+				Dans l'article <a class="lienArticle Fr" href="https://gkemayo.developpez.com/tutoriels/java/tutoriel-sur-creation-application-web-avec-angular7-et-spring-boot-2/">précédent</a>, j'avais expliqué comment développer une application web full stack à base d'Angular et Java/Spring Boot. Le code source des deux composants (Front et Back) constituant notre application est consultable sur GitLab :
+			</p>
+      <ul class="ListeDVP">
+        <li>Front-end développé en Angular : <a class="lienArticle https" href="https://gitlab.com/gkemayo/library-ui">https://gitlab.com/gkemayo/library-ui</a></li>
+        <li>Back-end développé en Java/Spring Boot : <a class="lienArticle https" href="https://gitlab.com/gkemayo/library">https://gitlab.com/gkemayo/library</a></li>
+      </ul>
+      <p>
+			    Dans ledit article, je montrais comment déployer ces deux composants sur un serveur Tomcat dans un environnement <span class="italique">on-premise</span>.<br><br>
+				Notre objectif dans le présent article est de reprendre cette application, d'y apporter les modifications nécessaires afin de la déployer en mode Production dans le cloud, notamment dans un environnement d'essai (et donc gratuit) Cloud Foundry du <span class="italique">provider</span> <b>SAP Cloud Platform</b>.<br></p>
+      <p>
+				L'architecture de l'application peut être caricaturée par le schéma suivant :
+			</p>
+      <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+        <tbody><tr>
+          <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/architecture-app.png"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/architecture-app.png" alt="Architecture cloud foundry de l&#39;application" title="Architecture cloud foundry de l&#39;application" data-title="Architecture cloud foundry de l&#39;application" width="550" height="173" class="ImgCliquable image_verticale"></a> <br></td>
+        </tr>
+      </tbody></table></div>
+      <p>
+				Mon choix de la plateforme SAP Cloud est simplement motivé par le fait que son environnement Cloud Foundry d'essai fournit assez d'espace mémoire et de stockage pour pouvoir déployer une application Java Spring Boot qui en demande pas mal. Cependant, il existe beaucoup d'autres providers Cloud Foundry qui offrent des environnements d'essai, mais avec un espace mémoire très petit, à l'instar de IBM Cloud. Enfin, je vous invite à consulter les <a class="lienArticle En" href="https://help.sap.com/viewer/ad4b9f0b14b0458cad9bd27bf435637d/Cloud/en-US/8cf196a5a8544c309086619df29595b1.html">limitations</a> de la plateforme SAP Cloud Foundry si jamais vous étiez intéressé à y déployer vos applications.<br><br>
+				Cependant, bien que la version payante de SAP propose plus de possibilités et d'actions, il convient de préciser que la version d'essai utilisée dans le cadre de cet article dispose aussi d'un certain nombre de limitations qu'il est bon de savoir. Notamment :
+			</p>
+      <ul class="ListeDVP">
+        <li>l'impossibilité de créer vos propres nom de domaine pour vos applications (ce service est payant) ;</li>
+        <li>la capacité (ou le quota) de stockage est limité pour vos applications : 1GB maximum de mémoire run et 4GB maximum de disque dur ;</li>
+        <li>le support uniquement d'applications de type Java et html ;</li>
+        <li>pas de service qui informe de la disponibilité ou non et de la santé des services de la <span class="italique">marketplace</span> SAP cloud plateform ;</li>
+        <li>le compte d'essai n'est disponible que pour 30 jours renouvelables plusieurs fois dans la limite d'un an ;</li>
+        <li>les services offerts dans la version d'essai ne sont pas très nombreux, contraitement à la version payante ;</li>
+        <li>les applications déployées dans cette version d'essai sont automatiquement arrêtées par le système toutes les 24 heures. Il faut alors les relancer à la main dans votre espace ;</li>
+        <li>etc.</li>
+      </ul>
+      <p>
+				L'architecture ci-dessus fait donc observer que nous provisionnerons :
+			</p>
+      <ul class="ListeDVP">
+        <li>un <span class="italique">sous-domaine</span>, encore appelé une <span class="italique">route</span>, ou plus simplement un nom de domaine via lequel l'application Front sera rendue accessible : <b><span class="italique">library-ui.cfapps.eu10.hana.ondemand.com</span></b> ;</li>
+        <li>un <span class="italique">sous-domaine</span> via lequel l'application Back sera rendue accessible : <b><span class="italique">library.cfapps.eu10.hana.ondemand.com</span></b> ;</li>
+        <li>un service, consistant en une base de données relationnelle Postgresql à laquelle on l'attachera à l'application Back, pour la persistance des données.</li>
+      </ul>
+      <p>
+				L'application Front communique avec le Back par des appels de Web services REST au travers des services Angular en direction des <span class="italique">controller</span> Spring, cf. <a class="lienArticle https" href="https://gkemayo.developpez.com/tutoriels/java/tutoriel-sur-creation-application-web-avec-angular7-et-spring-boot-2/?page=expression-du-besoin-de-l-application">expression des besoins et architecture de l'application initiale</a>. 
+			</p>
+      <p class="imgtext-info">
+				Il faut noter que les deux sous-domaines ci-dessus (<span class="italique">library-ui.cfapps.eu10.hana.ondemand.com</span> et <span class="italique">library.cfapps.eu10.hana.ondemand.com</span>), s'appuient sur le domaine gratuit <b>cfapps.eu10.hana.ondemand.com</b> offert dans la version d'essai de la plateforme SAP Cloud Foundry. Comme je l'ai dit, vous ne pouvez malheureusement pas créer votre propre nom de domaine, mais plutôt créer une route (ou sous-domaine) à partir du domaine offert qui n'est pas très expressif.
+			</p>
+      <p>
+				Vous pouvez dès à présent et pour la suite, cloner le projet dédié à cet article ici :
+			</p>
+      <ul class="ListeDVP">
+        <li>
+          <a class="lienArticle https" href="https://gitlab.com/gkemayo/cloudfoundry-app">https://gitlab.com/gkemayo/cloudfoundry-app</a>
+        </li>
+      </ul>
+      <p>
+				Pour le reste, j'ai organisé l'article comme suit : dans les sections II et III, je présenterai et motiverai les modifications/ajouts que j'ai eus besoin d'effectuer sur les composants Front et Back de l'application initiale pour les rendre déployables en mode Production dans le cloud. Les sections IV, V et VI se concentreront sur les actions à effectuer pour atteindre les objectifs du cours, à savoir faire fonctionner l'application dans un environnement Cloud Foundry.<br><br> Il existe divers outils permettant d'automatiser l'intégration et le déploiement d'applications dans le cloud et donc dans Cloud Foundry. La plupart de ces outils sont même très souvent intégrés sur la plateforme cloud de leur fournisseur, mais cet article n'est pas tourné vers cela. J'opte pour une démarche manuelle qui nous permettra d'exposer les étapes et être moins abstrait.
+			</p>
+    </div>
+    
+		<h2 class="TitreSection0" id="LII">II. Le Front-end<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+				Pour rappel une fois de plus, le composant Front de notre application initiale est consultable sur ce lien : <a class="lienArticle https" href="https://gitlab.com/gkemayo/library-ui">https://gitlab.com/gkemayo/library-ui</a>.
+				J'avais présenté <a class="lienArticle https" href="https://gkemayo.developpez.com/tutoriels/java/tutoriel-sur-creation-application-web-avec-angular7-et-spring-boot-2/?page=deploiement-de-l-application-dans-tomcat#LXV-A">ici</a> les étapes à suivre pour livrer ce Front sur un serveur Tomcat. J'étais allé au plus simple, car cette approche est assez limitée : elle considérait que le composant Back soit livré sur le même serveur Tomcat, le domaine d'accès du front étant <span class="italique">localhost:8080</span> et celui du Back étant <span class="italique">localhost:8082</span>. Ce qui est trop simpliste et même peu réaliste pour une application qui doit tourner en mode Production. <br></p>
+      <p>
+				Si on s'en réfère donc à l'architecture que nous nous sommes définie dans le schéma illustré à la section I, il en ressort que les deux composants (Front et Back) ne sont pas livrés sur le même serveur, et surtout que le Front accessible sur le nom de domaine <b><span class="italique">library-ui.cfapps.eu10.hana.ondemand.com</span></b> doit faire des appels de Web services REST vers le Back qui écoute lui sur le domaine <b><span class="italique">library.cfapps.eu10.hana.ondemand.com</span></b></p>
+      <p>
+				Pour rendre cela possible, j'ai modifié le code source du Front pour ajouter trois éléments :
+			</p>
+      <ul class="ListeDVP">
+        <li>une variable <span class="italique">apiBaseUrl</span> dans les fichiers <span class="italique">environnement.ts</span> et <span class="italique">environnement.prod.ts</span>, dont la valeur vaut <b><span class="italique">https:library.cfapps.eu10.hana.ondemand.com</span></b>. À noter que SAP Cloud Platform fonctionne en mode HTTPS. Pour bien comprendre cette notion, consulter ce <a class="lienArticle En" href="https://www.jvandemo.com/how-to-use-environment-variables-to-configure-your-angular-application-without-a-rebuild/">document</a>.</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e333">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e333" onclick="selectionCode(&#39;contenuCoded0e333&#39;, &#39;IdTitreCode-d0e333&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e333"><a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=export"><span>export</span></a> <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=const"><span>const</span></a> environment <code class="javascript_operator">=</code> <code class="javascript_operator">{</code>
+  <code class="javascript_label">production</code><code class="javascript_operator">:</code> <a class="javascript_literal2 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=true"><span>true</span></a><code class="javascript_operator">,</code>
+  <code class="javascript_label">apiBaseUrl</code><code class="javascript_operator">:</code> <code class="javascript_literal1">'https://library.cfapps.eu10.hana.ondemand.com'</code>
+<code class="javascript_operator">};</code>
+</code></pre></div></div>
+      <ul class="ListeDVP">
+        <li>un service Angular dont le but est d'intercepter toutes les requêtes REST d'URI relatives pour leur adjoindre le préfixe <span class="italique">https://library.cfapps.eu10.hana.ondemand.com</span> afin de pouvoir obtenir un chemin absolu vers une ressource sur le Back. Je profite aussi pour ajouter l'entête <span class="italique">Access-Control-Allow-Origin</span> permettant de résoudre la restriction <a class="lienArticle https" href="https://developer.mozilla.org/fr/docs/Web/HTTP/CORS">CORS</a> (Cross Origin Resource Sharing) due aux échanges entre le Front et le Back situés sur deux domaines différents. La réciproque doit aussi être faite côté Back, nous le montrerons dans sa section.</li>
+      </ul>
+      <p>
+				Exemple : si le Front appel le service REST <span class="italique">addBook</span> avec l'URI relative <span class="italique">/library/rest/book/api/addBook</span>, alors cette requête sera interceptée et transformée en <span class="italique">https://library.cfapps.eu10.hana.ondemand.com/library/rest/book/api/addBook</span></p>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e399">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e399" onclick="selectionCode(&#39;contenuCoded0e399&#39;, &#39;IdTitreCode-d0e399&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.<br>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br>20.<br>21.<br>22.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e399"><a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=import"><span>import</span></a> <code class="javascript_operator">{</code> HttpEvent<code class="javascript_operator">,</code> HttpHandler<code class="javascript_operator">,</code> HttpHeaders<code class="javascript_operator">,</code> HttpInterceptor<code class="javascript_operator">,</code> HttpRequest <code class="javascript_operator">}</code> <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=from"><span>from</span></a> <code class="javascript_literal1">'@angular/common/http'</code><code class="javascript_operator">;</code>
+<a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=import"><span>import</span></a> <code class="javascript_operator">{</code> Injectable <code class="javascript_operator">}</code> <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=from"><span>from</span></a> <code class="javascript_literal1">'@angular/core'</code><code class="javascript_operator">;</code>
+<a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=import"><span>import</span></a> <code class="javascript_operator">{</code> Observable <code class="javascript_operator">}</code> <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=from"><span>from</span></a> <code class="javascript_literal1">'rxjs'</code><code class="javascript_operator">;</code>
+<a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=import"><span>import</span></a> <code class="javascript_operator">{</code> environment <code class="javascript_operator">}</code> <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=from"><span>from</span></a> <code class="javascript_literal1">'src/environments/environment'</code><code class="javascript_operator">;</code>
+
+
+@<code class="javascript_function">Injectable</code><code class="javascript_operator">({</code>
+  <code class="javascript_label">providedIn</code><code class="javascript_operator">:</code> <code class="javascript_literal1">'root'</code>
+<code class="javascript_operator">}</code>)
+<a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=export"><span>export</span></a> <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=class"><span>class</span></a> RequestInterceptorService <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=implements"><span>implements</span></a> HttpInterceptor <code class="javascript_operator">{</code>
+
+  <code class="javascript_keyword4">constructor</code><code class="javascript_operator">(</code>) <code class="javascript_operator">{</code> <code class="javascript_operator">}</code>
+  <code class="javascript_function">intercept</code><code class="javascript_operator">(</code><code class="javascript_label">req</code><code class="javascript_operator">:</code> HttpRequest<code class="javascript_operator">&lt;</code>any<code class="javascript_operator">&gt;,</code> <code class="javascript_label">next</code><code class="javascript_operator">:</code> HttpHandler)<code class="javascript_operator">:</code> Observable<code class="javascript_operator">&lt;</code>HttpEvent<code class="javascript_operator">&lt;</code>any<code class="javascript_operator">&gt;&gt;</code> <code class="javascript_operator">{</code>
+    <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=let"><span>let</span></a> baseUrl <code class="javascript_operator">=</code> environment<code class="javascript_operator">.</code>apiBaseUrl<code class="javascript_operator">;</code>
+    <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=if"><span>if</span></a><code class="javascript_operator">(</code>baseUrl <code class="javascript_operator">&amp;&amp;</code> <code class="javascript_operator">!(</code>req<code class="javascript_operator">.</code>url<code class="javascript_function">.startsWith</code><code class="javascript_operator">(</code><code class="javascript_literal1">'http'</code>) <code class="javascript_operator">||</code> req<code class="javascript_operator">.</code>url<code class="javascript_function">.startsWith</code><code class="javascript_operator">(</code><code class="javascript_literal1">'https'</code>)))<code class="javascript_operator">{</code>
+       req <code class="javascript_operator">=</code> req<code class="javascript_function">.clone</code><code class="javascript_operator">({</code><code class="javascript_label">url</code><code class="javascript_operator">:</code> baseUrl <code class="javascript_operator">+</code> req<code class="javascript_operator">.</code>url<code class="javascript_operator">}</code>)<code class="javascript_operator">;</code>
+       req<code class="javascript_operator">.</code>headers<code class="javascript_function">.append</code><code class="javascript_operator">(</code><code class="javascript_literal1">'Access-Control-Allow-Origin'</code><code class="javascript_operator">,</code> baseUrl)<code class="javascript_operator">;</code>
+       <a class="javascript_keyword1 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=return"><span>return</span></a> next<code class="javascript_function">.handle</code><code class="javascript_operator">(</code>req)<code class="javascript_operator">;</code>
+    <code class="javascript_operator">}</code>
+  <code class="javascript_operator">}</code>
+  
+<code class="javascript_operator">}</code>
+</code></pre></div></div>
+      <ul class="ListeDVP">
+        <li>l'activation de cet intercepteur, par l'ajout de la ligne suivante dans l'<span class="italique">app.module.ts</span> : </li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e710">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e710" onclick="selectionCode(&#39;contenuCoded0e710&#39;, &#39;IdTitreCode-d0e710&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e710" class="contenuCode"><code class="javascript_operator">{</code><code class="javascript_label">provide</code><code class="javascript_operator">:</code> HTTP_INTERCEPTORS<code class="javascript_operator">,</code> <code class="javascript_label">useClass</code><code class="javascript_operator">:</code> RequestInterceptorService<code class="javascript_operator">,</code> <code class="javascript_label">multi</code><code class="javascript_operator">:</code> <a class="javascript_literal2 lien_documentation_code" target="_blank" href="https://developer.mozilla.org/fr/search?q=true"><span>true</span></a><code class="javascript_operator">}</code></code></pre></div>
+    </div>
+    
+		<h2 class="TitreSection0" id="LIII">III. Le Back-end<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+				Le code source de l'application initiale (<a class="lienArticle https" href="https://gitlab.com/gkemayo/library">https://gitlab.com/gkemayo/library</a>) ne change pas fondamentalement non plus, mais nous avons apporté quelques modifications dans le pom.xml, dans l'<span class="italique">application.properties</span>, la gestion du CORS et la gestion semi-manuelle du schéma de la base de données. Nous avons donc le résultat suivant :
+			</p>
+      <ul class="ListeDVP">
+        <li>pom.xml</li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e760">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e760" onclick="selectionCode(&#39;contenuCoded0e760&#39;, &#39;IdTitreCode-d0e760&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.<br>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br>20.<br>21.<br>22.<br>23.<br>24.<br>25.<br>26.<br>27.<br>28.<br>29.<br>30.<br>31.<br>32.<br>33.<br>34.<br>35.<br>36.<br>37.<br>38.<br>39.<br>40.<br>41.<br>42.<br>43.<br>44.<br>45.<br>46.<br>47.<br>48.<br>49.<br>50.<br>51.<br>52.<br>53.<br>54.<br>55.<br>56.<br>57.<br>58.<br>59.<br>60.<br>61.<br>62.<br>63.<br>64.<br>65.<br>66.<br>67.<br>68.<br>69.<br>70.<br>71.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e760"><code class="xml_keyword3">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>
+<code class="xml_markup">&lt;project </code><code class="xml_literal3">xmlns</code><code class="xml_operator">=</code><code class="xml_literal1">"http://maven.apache.org/POM/4.0.0"</code><code class="xml_markup"> </code><code class="xml_label">xmlns</code><code class="xml_operator">:</code><code class="xml_literal3">xsi</code><code class="xml_operator">=</code><code class="xml_literal1">"http://www.w3.org/2001/XMLSchema-instance"</code>
+<code class="xml_markup">	</code><code class="xml_label">xsi</code><code class="xml_operator">:</code><code class="xml_literal3">schemaLocation</code><code class="xml_operator">=</code><code class="xml_literal1">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</code><code class="xml_markup">&gt;</code>
+	<code class="xml_markup">&lt;modelVersion&gt;</code>4.0.0<code class="xml_markup">&lt;/modelVersion&gt;</code>
+	<code class="xml_markup">&lt;parent&gt;</code>
+		<code class="xml_markup">&lt;groupId&gt;</code>org.springframework.boot<code class="xml_markup">&lt;/groupId&gt;</code>
+		<code class="xml_markup">&lt;artifactId&gt;</code>spring-boot-starter-parent<code class="xml_markup">&lt;/artifactId&gt;</code>
+		<code class="xml_markup">&lt;version&gt;</code>2.2.5.RELEASE<code class="xml_markup">&lt;/version&gt;</code>
+		<code class="xml_markup">&lt;relativePath/&gt;</code> <code class="xml_comment1">&lt;!-- lookup parent from repository --&gt;</code>
+	<code class="xml_markup">&lt;/parent&gt;</code>
+	<code class="xml_markup">&lt;groupId&gt;</code>com.gkemayo<code class="xml_markup">&lt;/groupId&gt;</code>
+	<code class="xml_markup">&lt;artifactId&gt;</code>library<code class="xml_markup">&lt;/artifactId&gt;</code>
+	<code class="xml_markup">&lt;version&gt;</code>0.0.1-SNAPSHOT<code class="xml_markup">&lt;/version&gt;</code>
+	<code class="xml_markup">&lt;packaging&gt;</code>jar<code class="xml_markup">&lt;/packaging&gt;</code>
+	<code class="xml_markup">&lt;name&gt;</code>library<code class="xml_markup">&lt;/name&gt;</code>
+	<code class="xml_markup">&lt;description&gt;</code>Project for managing books in a library<code class="xml_markup">&lt;/description&gt;</code>
+
+	<code class="xml_markup">&lt;properties&gt;</code>
+		<code class="xml_markup">&lt;java.version&gt;</code>1.8<code class="xml_markup">&lt;/java.version&gt;</code>
+	<code class="xml_markup">&lt;/properties&gt;</code>
+
+	<code class="xml_markup">&lt;dependencies&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>org.postgresql<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>postgresql<code class="xml_markup">&lt;/artifactId&gt;</code>
+			<code class="xml_markup">&lt;version&gt;</code>42.2.18<code class="xml_markup">&lt;/version&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>org.springframework.boot<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>spring-boot-starter-data-jpa<code class="xml_markup">&lt;/artifactId&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>org.springframework.boot<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>spring-boot-starter-mail<code class="xml_markup">&lt;/artifactId&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>org.springframework.boot<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>spring-boot-starter-web<code class="xml_markup">&lt;/artifactId&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>org.springframework.boot<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>spring-boot-starter-test<code class="xml_markup">&lt;/artifactId&gt;</code>
+			<code class="xml_markup">&lt;scope&gt;</code>test<code class="xml_markup">&lt;/scope&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>org.modelmapper<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>modelmapper<code class="xml_markup">&lt;/artifactId&gt;</code>
+			<code class="xml_markup">&lt;version&gt;</code>2.3.3<code class="xml_markup">&lt;/version&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>io.springfox<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>springfox-swagger2<code class="xml_markup">&lt;/artifactId&gt;</code>
+			<code class="xml_markup">&lt;version&gt;</code>2.9.2<code class="xml_markup">&lt;/version&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+		<code class="xml_markup">&lt;dependency&gt;</code>
+			<code class="xml_markup">&lt;groupId&gt;</code>io.springfox<code class="xml_markup">&lt;/groupId&gt;</code>
+			<code class="xml_markup">&lt;artifactId&gt;</code>springfox-swagger-ui<code class="xml_markup">&lt;/artifactId&gt;</code>
+			<code class="xml_markup">&lt;version&gt;</code>2.9.2<code class="xml_markup">&lt;/version&gt;</code>
+		<code class="xml_markup">&lt;/dependency&gt;</code>
+	<code class="xml_markup">&lt;/dependencies&gt;</code>
+		
+	<code class="xml_markup">&lt;build&gt;</code>
+		<code class="xml_markup">&lt;plugins&gt;</code>
+			<code class="xml_markup">&lt;plugin&gt;</code>
+				<code class="xml_markup">&lt;groupId&gt;</code>org.springframework.boot<code class="xml_markup">&lt;/groupId&gt;</code>
+				<code class="xml_markup">&lt;artifactId&gt;</code>spring-boot-maven-plugin<code class="xml_markup">&lt;/artifactId&gt;</code>
+			<code class="xml_markup">&lt;/plugin&gt;</code>
+		<code class="xml_markup">&lt;/plugins&gt;</code>
+	<code class="xml_markup">&lt;/build&gt;</code>
+
+<code class="xml_markup">&lt;/project&gt;</code>
+</code></pre></div></div>
+      <p>
+				Dans ce pom, j'ai ajouté la dépendance qui injecte le connecteur jdbc postgresql qui permet l'accès à la base de données, et préféré un packaging en mode <span class="italique">jar</span> qui est le mode le plus recommandé lors des livraisons dans le cloud, quoique pas obligatoire.
+			</p>
+      <ul class="ListeDVP">
+        <li>
+          <span class="italique">application.properties</span>
+        </li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e1251">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e1251" onclick="selectionCode(&#39;contenuCoded0e1251&#39;, &#39;IdTitreCode-d0e1251&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.<br>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br>20.<br>21.<br>22.<br>23.<br>24.<br>25.<br>26.<br>27.<br>28.<br>29.<br>30.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e1251"><code class="props_keyword1">server.servlet.context-path</code>=/library
+
+<code class="props_comment1">############# DataSource Config #################</code>
+<code class="props_keyword1">spring.datasource.name</code>=$<code class="props_keyword3">{vcap.services.postgreslibrary-db.credentials.dbname}</code>
+<code class="props_keyword1">spring.datasource.username</code>=$<code class="props_keyword3">{vcap.services.postgreslibrary-db.credentials.username}</code>
+<code class="props_keyword1">spring.datasource.password</code>=$<code class="props_keyword3">{vcap.services.postgreslibrary-db.credentials.password}</code>
+<code class="props_keyword1">spring.datasource.url</code> =jdbc:postgresql://$<code class="props_keyword3">{vcap.services.postgreslibrary-db.credentials.hostname}</code>:$<code class="props_keyword3">{vcap.services.postgreslibrary-db.credentials.port}</code>/$<code class="props_keyword3">{vcap.services.postgreslibrary-db.credentials.dbname}</code>
+<code class="props_keyword1">spring.datasource.driver-class-name</code>=org.postgresql.Driver
+<code class="props_keyword1">spring.datasource.sql-script-encoding</code>= UTF-<code class="props_digit">8</code>
+
+<code class="props_keyword1">spring.datasource.initialization-mode</code>=always
+<code class="props_keyword1">spring.datasource.schema</code>=classpath:data/librarydb-schema.sql
+<code class="props_keyword1">spring.datasource.data</code>=classpath:data/categories.sql
+
+<code class="props_comment1">############# Hibernate properties #################</code>
+<code class="props_keyword1">spring.jpa.show-sql</code>=true
+<code class="props_keyword1">spring.jpa.hibernate.ddl-auto</code>=create
+<code class="props_keyword1">spring.jpa.database-platform</code>=org.hibernate.dialect.PostgreSQLDialect
+
+<code class="props_comment1">############# Email Config #################</code>
+<code class="props_keyword1">spring.mail.default-encoding</code>=UTF-<code class="props_digit">8</code>
+<code class="props_keyword1">spring.mail.protocol</code>=smtp
+<code class="props_keyword1">spring.mail.host</code>=smtp.gmail.com
+<code class="props_keyword1">spring.mail.username</code>=noreply.library.test@gmail.com
+<code class="props_keyword1">spring.mail.password</code>=password1Test
+<code class="props_keyword1">spring.mail.port</code>= <code class="props_digit">587</code>
+<code class="props_keyword1">spring.mail.properties.mail.smtp.auth</code>=true
+<code class="props_keyword1">spring.mail.properties.mail.smtp.starttls.enable</code>=true
+<code class="props_keyword1">spring.mail.test-connection</code>=false
+<code class="props_comment1">#https://www.google.com/settings/security/lesssecureapps</code>
+</code></pre></div></div>
+      <p>
+				Dans l'<span class="italique">application.properties</span>, je demande à Spring Boot de créer la datasource de l'application en s'appuyant sur les valeurs de la variables d'environnement <a class="lienArticle En" href="https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES">VCAP_SERVICES</a> de Cloud Foundry qui encapsule en runtime les données de connexion à la base de données Postgresql que nous allons provisionner dans le cloud. Nous donnerons le nom <b><span class="italique">postgreslibrary-db</span></b> à cette base de données. Nous le verrons un peu plus tard dans cet article.<br></p>
+      <p>
+				Par ailleurs, j'ai configuré l'<span class="italique">application.properties</span> pour que Spring Boot soit capable de créer automatiquement le schéma de notre base de données au démarrage de l'application dans le cloud. Cela est fait aux travers des instructions <span class="italique">spring.datasource.initialization-mode=always</span> et <span class="italique">spring.datasource.schema=classpath:data/librarydb-schema.sql</span> dont le contenu du fichier <span class="italique">librarydb-schema.sql</span> est :
+			</p>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e1435">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e1435" onclick="selectionCode(&#39;contenuCoded0e1435&#39;, &#39;IdTitreCode-d0e1435&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.<br>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br>20.<br>21.<br>22.<br>23.<br>24.<br>25.<br>26.<br>27.<br>28.<br>29.<br>30.<br>31.<br>32.<br>33.<br>34.<br>35.<br>36.<br>37.<br>38.<br>39.<br>40.<br>41.<br>42.<br>43.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e1435"><code class="pl-sql_keyword1">CREATE</code> <code class="pl-sql_keyword1">TABLE</code> <code class="pl-sql_keyword1">IF</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">EXISTS</code> CATEGORY<code class="pl-sql_operator">(</code>
+    <code class="pl-sql_keyword1">CODE</code> <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    LABEL <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+	<code class="pl-sql_keyword1">PRIMARY</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code><code class="pl-sql_keyword1">CODE</code><code class="pl-sql_operator">)</code>
+<code class="pl-sql_operator">)</code>;
+
+<code class="pl-sql_keyword1">CREATE</code> <code class="pl-sql_keyword1">TABLE</code> <code class="pl-sql_keyword1">IF</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">EXISTS</code> CUSTOMER<code class="pl-sql_operator">(</code>
+    CUSTOMER_ID <code class="pl-sql_keyword1">INTEGER</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    ADDRESS <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code>,
+    CREATION_DATE <code class="pl-sql_keyword1">DATE</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    EMAIL <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    FIRST_NAME <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    JOB <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code>,
+    LAST_NAME <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+	<code class="pl-sql_keyword1">PRIMARY</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code>CUSTOMER_ID<code class="pl-sql_operator">)</code>,
+	<code class="pl-sql_keyword1">CONSTRAINT</code> UNIQUE_CONSTRAINT_EMAIL <code class="pl-sql_keyword1">UNIQUE</code><code class="pl-sql_operator">(</code>EMAIL<code class="pl-sql_operator">)</code>
+<code class="pl-sql_operator">)</code>;
+
+<code class="pl-sql_keyword1">CREATE</code> <code class="pl-sql_keyword1">TABLE</code> <code class="pl-sql_keyword1">IF</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">EXISTS</code> BOOK<code class="pl-sql_operator">(</code>
+    BOOK_ID <code class="pl-sql_keyword1">INTEGER</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    AUTHOR <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code>,
+    ISBN <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    REGISTER_DATE <code class="pl-sql_keyword1">DATE</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    RELEASE_DATE <code class="pl-sql_keyword1">DATE</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    TITLE <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    TOTAL_EXAMPLARIES <code class="pl-sql_keyword1">INTEGER</code>,
+    CAT_CODE <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+	<code class="pl-sql_keyword1">PRIMARY</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code>BOOK_ID<code class="pl-sql_operator">)</code>,
+	<code class="pl-sql_keyword1">CONSTRAINT</code> UNIQUE_CONSTRAINT_ISBN <code class="pl-sql_keyword1">UNIQUE</code><code class="pl-sql_operator">(</code>ISBN<code class="pl-sql_operator">)</code>,
+	<code class="pl-sql_keyword1">CONSTRAINT</code> FK_CONSTRAINT_CAT_CODE <code class="pl-sql_keyword1">FOREIGN</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code>CAT_CODE<code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">REFERENCES</code> CATEGORY<code class="pl-sql_operator">(</code><code class="pl-sql_keyword1">CODE</code><code class="pl-sql_operator">)</code>
+<code class="pl-sql_operator">)</code>;
+
+<code class="pl-sql_keyword1">CREATE</code> <code class="pl-sql_keyword1">TABLE</code> <code class="pl-sql_keyword1">IF</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">EXISTS</code> LOAN<code class="pl-sql_operator">(</code>
+    CREATION_DATE_TIME <code class="pl-sql_keyword2">TIMESTAMP</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    BEGIN_DATE <code class="pl-sql_keyword1">DATE</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    END_DATE <code class="pl-sql_keyword1">DATE</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    <code class="pl-sql_keyword1">STATUS</code> <code class="pl-sql_keyword1">VARCHAR</code><code class="pl-sql_operator">(</code><code class="pl-sql_digit">255</code><code class="pl-sql_operator">)</code>,
+    CUSTOMER_ID <code class="pl-sql_keyword1">INTEGER</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+    BOOK_ID <code class="pl-sql_keyword1">INTEGER</code> <code class="pl-sql_keyword1">NOT</code> <code class="pl-sql_keyword1">NULL</code>,
+	<code class="pl-sql_keyword1">PRIMARY</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code>BOOK_ID, CREATION_DATE_TIME, CUSTOMER_ID<code class="pl-sql_operator">)</code>,
+	<code class="pl-sql_keyword1">CONSTRAINT</code> FK_CONSTRAINT_BOOK_ID <code class="pl-sql_keyword1">FOREIGN</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code>BOOK_ID<code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">REFERENCES</code> BOOK<code class="pl-sql_operator">(</code>BOOK_ID<code class="pl-sql_operator">)</code>,
+	<code class="pl-sql_keyword1">CONSTRAINT</code> FK_CONSTRAINT_CUSTOMER_ID <code class="pl-sql_keyword1">FOREIGN</code> <code class="pl-sql_keyword1">KEY</code><code class="pl-sql_operator">(</code>CUSTOMER_ID<code class="pl-sql_operator">)</code> <code class="pl-sql_keyword1">REFERENCES</code> CUSTOMER<code class="pl-sql_operator">(</code>CUSTOMER_ID<code class="pl-sql_operator">)</code>
+<code class="pl-sql_operator">)</code>;
+</code></pre></div></div>
+      <ul class="ListeDVP">
+        <li>Enfin, j'ai rajouté l'annotation suivante sur les quatre <span class="italique">controllers</span> REST (BookRestController, CustomerRestController, CategoryRestController et LoanRestController) de l'application Back : </li>
+      </ul>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2031">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2031" onclick="selectionCode(&#39;contenuCoded0e2031&#39;, &#39;IdTitreCode-d0e2031&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2031" class="contenuCode"><code class="java_keyword4">@CrossOrigin</code><code class="java_operator">(</code>origins <code class="java_operator">=</code> <code class="java_literal1">"https://library-ui.cfapps.eu10.hana.ondemand.com"</code>)</code></pre></div>
+      <p>
+				Exemple : 
+			</p>
+      <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2047">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2047" onclick="selectionCode(&#39;contenuCoded0e2047&#39;, &#39;IdTitreCode-d0e2047&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.<br>11.<br>12.<br>13.<br>14.<br>15.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e2047"><code class="java_keyword4">@RestController</code>
+<code class="java_keyword4">@RequestMapping</code><code class="java_operator">(</code><code class="java_literal1">"/rest/book/api"</code>)
+<code class="java_keyword4">@CrossOrigin</code><code class="java_operator">(</code>origins <code class="java_operator">=</code> <code class="java_literal1">"https://library-ui.cfapps.eu10.hana.ondemand.com"</code>)
+<code class="java_keyword4">@Api</code><code class="java_operator">(</code>value <code class="java_operator">=</code> <code class="java_literal1">"Book Rest Controller: contains all operations for managing books"</code>)
+<code class="java_keyword1">public</code> <code class="java_keyword3">class</code> BookRestController <code class="java_operator">{</code>
+
+	<code class="java_keyword1">public</code> <code class="java_keyword1">static</code> <code class="java_keyword1">final</code> Logger LOGGER <code class="java_operator">=</code> LoggerFactory.<code class="java_function">getLogger</code><code class="java_operator">(</code>BookRestController.<code class="java_keyword3">class</code>);
+
+	<code class="java_keyword4">@Autowired</code>
+	<code class="java_keyword1">private</code> BookServiceImpl bookService;
+	
+	.
+	.
+	.
+<code class="java_operator">}</code>
+</code></pre></div></div>
+      <p>
+				En ajoutant cette annotation sur les classes <span class="italique">controllers</span> Spring, on permet ainsi à l'application Front accessible sur le domaine <span class="italique">https://library-ui.cfapps.eu10.hana.ondemand.com</span> à être autorisée à appeler les Web services REST exposés dans chacune des classes sans être rejetée à cause de la restriction CORS (Cross Origin Resource Sharing).<br></p>
+      <p>
+				Maintenant que je vous ai présenté les éléments de configuration fondamentale dans le code source des deux composants Front et Back de l'application, nous allons passer à l'étape suivante qui consiste à les déployer et les intégrer dans un environnement Cloud Foundry.
+			</p>
+    </div>
+    
+		<h2 class="TitreSection0" id="LIV">IV. Installation des outils d'accès à Cloud Foundry<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+				Cloud Foundry est un modèle de cloud standard et open source de type PAAS (Platform As A Service) qui offre la possibilité d'y publier plusieurs types d'applications (Java, Go, Angular, Python, etc.), et prend en charge leur déploiement automatique pour les rendre immédiatement disponibles à l'utilisation sur Internet. Techniquement, c'est un concept qui définit des API de services que plusieurs fournisseurs (providers) peuvent adopter et implémenter afin de les rendre effectives sur leurs plateformes cloud. Dans la section I, je citais des exemples de fournisseurs tels que IBM Cloud, SUSE Cloud, Atos Cloud, ou encore PWS/PCF (en cessation de service au moment où nous écrivons cet article), etc., qui intègrent Cloud Foundry. J'utiliserai pour ce cours le fournisseur SAP Cloud Platform.<br></p>
+      <p>
+				Comme on peut l'observer sur l'architecture simplifiée schématisée ci-dessous et prise dans la <a class="lienArticle En" href="https://docs.cloudfoundry.org/services/overview.html">documentation</a> officielle, Cloud Foundry est subdivisée en deux parties : une partie (le rectangle en pointillés de gauche) correspondant à l'environnement qui héberge effectivement les applications qui y sont déployées, et une partie (le rectangle en pointillés de droite) correspondant aux services et ressources mis à disposition par le provider de la plateforme cloud que l'on peut provisionner pour enrichir les besoins des applications :<br></p>
+      <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+        <tbody><tr>
+          <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/archi-cloudfoundry.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/archi-cloudfoundry.JPG" alt="Architecture de Cloud Foundry" title="Architecture de Cloud Foundry" data-title="Architecture de Cloud Foundry" width="550" height="324" class="ImgCliquable image_verticale"></a> <br></td>
+        </tr>
+      </tbody></table></div>
+      <p>
+				La question est : <b>comment fait-on depuis sa machine en local pour communiquer et transmettre des données et des instructions à la partie de gauche de cette architecture, pour que notre application puisse être déployée comme on le souhaite ?</b></p>
+      <p>
+				Pour ce faire, Cloud Foundry fournit un <span class="italique">client</span> CLI (Command Line Interface) qui permet de répondre à cette question. Pour le télécharger, il faut aller sur le lien <a class="lienArticle En" href="https://github.com/cloudfoundry/cli/blob/master/doc/installation-instructions/installation-instructions-v7.md#installers-and-compressed-binaries">suivant</a>.
+			</p>
+      <p>
+				Si vous êtes sur Windows par exemple, il suffit de télécharger le zip, puis le dézipper et double-cliquer sur l'un des fichiers au choix et selon la version que vous souhaiter installer : <span class="italique">cf.exe</span> ou <span class="italique">cf7.exe</span>. Il ne reste plus qu'à suivre le guide d'installation. Une fois installé, le client Cloud Foundry s'intègre directement dans votre Terminal de commandes Shell (cmd ou même Git Bash (si vous en avez installé un)). Vous êtes donc prêt à commencer à donner des instructions à la plateforme SAP Cloud Foundry. Mais avant d'y arriver, il faut déjà avoir un compte sur cette plateforme, ce qui constitue l'objet de la section suivante. En attendant, vérifiez si l'installation de votre <span class="italique">client</span> s'est bien passée en saisissant cette commande <span class="italique">cf version</span> dans votre Terminal :
+			</p>
+      <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+        <tbody><tr>
+          <td class="colonne" style="text-align:center;"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/cf-version-command.JPG" alt="cf version command" title="cf version command" data-title="cf version command" width="304" height="39" class="image_verticale"> <br></td>
+        </tr>
+      </tbody></table></div>
+    </div>
+    
+		<h2 class="TitreSection0" id="LV">V. Créer un compte SAP Cloud Platform<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+				La création d'un compte d'essai chez SAP Cloud Platform est très simple. Je ne reviendrai pas dessus dans cet article, car les étapes 1 à 5 du <a class="lienArticle En" href="https://developers.sap.com/tutorials/hcp-create-trial-account.html">tutoriel</a> de la documentation SAP explique comment le faire de façon claire simple et précise. 
+			</p>
+      <p>
+				Ce qu'il faut retenir c'est qu'une fois son compte d'essai créé, il faut se rendre à l'adresse suivante pour se connecter en saisissant son login et son mot de passe :
+			</p>
+      <ul class="ListeDVP">
+        <li>
+          <a class="lienArticle https" href="https://account.hanatrial.ondemand.com/">https://account.hanatrial.ondemand.com/</a>
+        </li>
+      </ul>
+      <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+        <tbody><tr>
+          <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/sap-connection-page.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/sap-connection-page.JPG" alt="Page de connexion SAP" title="Page de connexion SAP" data-title="Page de connexion SAP" width="509" height="325" class="ImgCliquable image_verticale"></a> <br></td>
+        </tr>
+      </tbody></table></div>
+      <p>
+				Une fois la connexion réussie, les étapes 6 à 8 du même <a class="lienArticle En" href="https://developers.sap.com/tutorials/hcp-create-trial-account.html">tutoriel</a>, montrent comment arriver sur son espace Cloud Foundry.
+			</p>
+    </div>
+    
+		<h2 class="TitreSection0" id="LVI">VI. Déployez l'application dans SAP Cloud Froundry<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      
+		<h3 class="TitreSection1" id="LVI-A">VI-A. Utilisation du CLI pour se connecter à son compte<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>
+					Pour pouvoir envoyer des instructions depuis son poste local à son compte SAP Cloud Foundry, je l'ai dit, il faut utiliser le client <span class="italique">CLI</span>. Pour ce faire, il faut d'abord se connecter à ce compte pour qu'un canal de communication puisse s'établir.
+				</p>
+        <p>
+					SAP Cloud Foundry, comme tous les autres providers fournissent une url unique appelée <span class="italique">API Endpoint</span> à travers laquelle la CLI se connecte. Cet API <span class="italique">Endpoint</span> se trouve sur la page d'accueil de votre compte pour le cas de SAP :
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/api-endpoint.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/api-endpoint.JPG" alt="API Endpoint" title="API Endpoint" data-title="API Endpoint" width="550" height="288" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+        <p>
+					Pour se connecter via la CLI, ouvrez votre terminal préféré et saisissez la commande suivante, qui vous demandera ensuite de saisir votre login/mot de passe :
+				</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2313">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2313" onclick="selectionCode(&#39;contenuCoded0e2313&#39;, &#39;IdTitreCode-d0e2313&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2313" class="contenuCode">cf login <code class="powershell_keyword3">-a</code> https:<code class="powershell_operator">//</code>api.cf.eu10.hana.ondemand.com</code></pre></div>
+        <p>
+					Si la connexion est réussie on obtient un résultat comme ceci :
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/connexion-reussie-cli.JPG" alt="Connexion depuis la CLI" title="Connexion depuis la CLI" data-title="Connexion depuis la CLI" width="431" height="287" class="image_verticale"> <br></td>
+          </tr>
+        </tbody></table></div>
+      </div>
+      
+		<h3 class="TitreSection1" id="LVI-B">VI-B. Provisionner le service Postgresql <a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>
+					Maintenant que notre CLI est connectée à la plateforme SAP Cloud Foundry, pour se provisionner le service Postgresql qui est en fait la base de données de l'application, nous avons deux possibilités.
+				</p>
+        <ul class="ListeDVP">
+          <li>Réaliser toute la commande depuis la CLI :</li>
+        </ul>
+        <p>
+					pour ce faire, saisir la commande suivante pour voir les offres de services fournies pour notre type de compte :
+				</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2354">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2354" onclick="selectionCode(&#39;contenuCoded0e2354&#39;, &#39;IdTitreCode-d0e2354&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2354" class="contenuCode">cf marketplace</code></pre></div>
+        <p class="imgtext-info">
+					Nous pouvons aussi étendre cette commande pour ne filtrer que les lignes contenant le mot clé «&nbsp;postgresql&nbsp;» :<br> <span class="italique">cf marketplace | grep postgresql</span></p>
+        <p>
+					Le résultat obtenu nous donnera une ligne au format <span class="italique">{SERVICE_NAME} {PLAN} {DESCRIPTION}</span>, ce qui donne pour notre cas : <b>postgresql-db  trial PostgreSQL service on SAP Cloud Platform</b><br><br>
+					L'application de la commande au format suivant, nous permettra finalement de créer notre base de données aussi simplement que ça :
+				</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2375">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2375" onclick="selectionCode(&#39;contenuCoded0e2375&#39;, &#39;IdTitreCode-d0e2375&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2375" class="contenuCode">cf create<code class="powershell_operator">-</code>service &lt;SERVICE_NAME<code class="powershell_operator">&gt;</code> &lt;SERVICE_PLAN<code class="powershell_operator">&gt;</code> &lt;SERVICE_INSTANCE_NAME<code class="powershell_operator">&gt;</code></code></pre></div>
+        <p>
+					Ce qui se traduit pour notre cas en :
+				</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2392">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2392" onclick="selectionCode(&#39;contenuCoded0e2392&#39;, &#39;IdTitreCode-d0e2392&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2392" class="contenuCode">cf create<code class="powershell_operator">-</code>service postgresql<code class="powershell_operator">-</code>db trial postgreslibrary<code class="powershell_operator">-</code>db</code></pre></div>
+        <p><span class="italique">postgreslibrary-db</span> correspond au nom que nous donnons à notre base de données, lui-même ayant pour nom de service <span class="italique">postgresql-db</span> dans SAP Cloud Foundry. Le terme <span class="italique">trial</span>, correspond lui au plan de service que SAP fournit pour notre type de compte. En gros, il s'agit d'une version gratuite de postgresql offerte par SAP, car nous avons un compte d'essai.
+				</p>
+        <ul class="ListeDVP">
+          <li>Réaliser toute la commande en utilisant l'interface graphique SAP :</li>
+        </ul>
+        <p>
+					pour ce faire, allez dans l'onglet <span class="italique">Service marketplace</span> de votre compte et recherchez le service par le terme <span class="italique">postgresql</span> :
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/service-postgresql.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/service-postgresql.JPG" alt="Service Postgresql" title="Service Postgresql" data-title="Service Postgresql" width="550" height="274" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+        <p>
+					En cliquant sur la zone rectangulaire <b>PostgreSQL, hyperscaler option</b>, vous arrivez sur une nouvelle fenêtre qui propose le bouton <b>Create Instance</b> qui vous guidera aisément dans la création de votre base de données postgresql :
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/images/create-service-postgresql.JPG"><img src="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/images/create-service-postgresql.JPG" alt="Création de la BDD Postgresql" title="Création de la BDD Postgresql" data-title="Création de la BDD Postgresql" width="550" height="169" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+      </div>
+      
+		<h3 class="TitreSection1" id="LVI-C">VI-C. Définir le fichier manifest.yml<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>
+					Pour transférer une application depuis son poste local vers une plateforme Cloud Foundry et en indiquant comment la déployer, nous avons le choix, soit de saisir successivement une série de commandes <span class="italique">cf</span>, soit de construire l'ensemble de ces commandes dans un fichier Yaml <b><span class="italique">manifest.yml</span></b> pour les jouer en une commande. En ouvrant un terminal à partir de l'emplacement où se trouve le fichier manifest.yml, on pourra l'exécuter. Dans mon cas, j'ai fait le choix du fichier manifest.yml et je l'ai placé à la racine du projet : 
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/manifest-yml.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/manifest-yml.JPG" alt="Manifest-yml" title="Manifest-yml" data-title="Manifest-yml" width="550" height="116" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+        <p>
+					Le contenu de ce fichier est le suivant :
+				</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2491">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2491" onclick="selectionCode(&#39;contenuCoded0e2491&#39;, &#39;IdTitreCode-d0e2491&#39;);">Sélectionnez</span></div></div><div style="overflow:auto;" class="code_avec_lignes"><div class="numeros_lignes">1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.<br>11.<br>12.<br>13.<br>14.<br>15.<br>16.<br>17.<br>18.<br>19.<br>20.<br>21.<br>22.<br>23.<br>24.<br>25.<br>26.<br>27.<br>28.<br>29.<br>30.<br></div><pre class="code_uniquement" style="margin: 0"><code class="contenuCode" id="contenuCoded0e2491"><code class="label">---</code>
+<code class="keyword1">defaults</code><code class="operator">:</code> <code class="keyword2">&amp;defaults</code>
+  <code class="keyword1">disk_quota</code><code class="operator">:</code> 1G
+  <code class="keyword1">instances</code><code class="operator">:</code> <code class="digit">1</code>
+  
+<code class="keyword1">applications</code><code class="operator">:</code>
+<code class="operator">-</code> <code class="keyword1">name</code><code class="operator">:</code> library<code class="operator">-</code>ui
+  &lt;&lt;<code class="operator">:</code> <code class="keyword2">*defaults</code>
+  <code class="keyword1">memory</code><code class="operator">:</code> 32M
+  <code class="keyword1">buildpacks</code><code class="operator">:</code> 
+   <code class="operator">-</code> <code class="keyword1">https</code><code class="operator">:</code>//github.com/cloudfoundry/staticfile<code class="operator">-</code>buildpack.git
+  <code class="keyword1">path</code><code class="operator">:</code> ./cloudfoundry<code class="operator">-</code>library<code class="operator">-</code>ui/dist
+  <code class="keyword1">routes</code><code class="operator">:</code>
+    <code class="operator">-</code> <code class="keyword1">route</code><code class="operator">:</code> library<code class="operator">-</code>ui.cfapps.eu10.hana.ondemand.com
+
+<code class="operator">-</code> <code class="keyword1">name</code><code class="operator">:</code> library
+  &lt;&lt;<code class="operator">:</code> <code class="keyword2">*defaults</code>
+  <code class="keyword1">memory</code><code class="operator">:</code> 1G
+  <code class="keyword1">buildpacks</code><code class="operator">:</code>
+   <code class="operator">-</code> <code class="keyword1">https</code><code class="operator">:</code>//github.com/cloudfoundry/java<code class="operator">-</code>buildpack.git
+  <code class="keyword1">path</code><code class="operator">:</code> ./cloudfoundry<code class="operator">-</code>library/target/library<code class="operator">-</code><code class="digit">0</code>.<code class="digit">0</code>.<code class="digit">1</code><code class="operator">-</code>SNAPSHOT.jar
+  <code class="keyword1">routes</code><code class="operator">:</code>
+    <code class="operator">-</code> <code class="keyword1">route</code><code class="operator">:</code> library.cfapps.eu10.hana.ondemand.com
+  <code class="keyword1">services</code><code class="operator">:</code>
+    <code class="operator">-</code> postgreslibrary<code class="operator">-</code>db
+  <code class="keyword1">env</code><code class="operator">:</code>
+    <code class="keyword1">SPRING_PROFILES_ACTIVE</code><code class="operator">:</code> cloud
+
+<code class="keyword1">env</code><code class="operator">:</code>
+  <code class="keyword1">JBP_CONFIG_SPRING_AUTO_RECONFIGURATION</code><code class="operator">:</code> <code class="literal1">'{enabled: false}'</code>
+</code></pre></div></div>
+        <p>
+					En résumé, ce manifest indique à Cloud Foundry qu'il doit déployer deux applications <b><span class="italique">library-ui</span></b> et <b><span class="italique">library</span></b> respectivement en les packageant à l'aide des buildpacks <span class="italique">https://github.com/cloudfoundry/staticfile-buildpack.git</span> et <span class="italique">https://github.com/cloudfoundry/java-buildpack.git</span>. Aussi, on indique à Cloud Foundry de provisionner un nom de domaine pour chacune de nos applications (<span class="italique">library-ui.cfapps.eu10.hana.ondemand.com</span> et <span class="italique">library.cfapps.eu10.hana.ondemand.com</span>) via lesquels elles seront rendues accessibles. Ensuite, en ce qui concerne l'application Back <span class="italique">library</span>, nous lui attachons (<span class="italique">bind</span>, en anglais) le service <span class="italique">postgreslibrary-db</span> que nous avons créé précédemment. Enfin, à travers la variable <span class="italique">path</span>, on indique le chemin où se trouve les artefacts des applications à livrer. Cela suppose au paravant que vous ayez <span class="italique">buildé</span> les différents projets. Pour rappel :
+				</p>
+        <ul class="ListeDVP">
+          <li>pour le Front, il faut se placer à la racine du projet et builder avec la commande Angular/npm : </li>
+        </ul>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2802">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2802" onclick="selectionCode(&#39;contenuCoded0e2802&#39;, &#39;IdTitreCode-d0e2802&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2802" class="contenuCode">ng build <code class="javascript_operator">--</code>prod <code class="javascript_operator">--</code>base<code class="javascript_operator">-</code>href <code class="javascript_operator">/</code>library<code class="javascript_operator">-</code>ui<code class="javascript_operator">/</code></code></pre></div>
+        <ul class="ListeDVP">
+          <li>pour le Back, il faut se placer à la racine du projet et builder avec la commande maven </li>
+        </ul>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2828">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2828" onclick="selectionCode(&#39;contenuCoded0e2828&#39;, &#39;IdTitreCode-d0e2828&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2828" class="contenuCode">mvn <code class="java_keyword2">package</code></code></pre></div>
+        <p>
+					Pour approfondir votre compréhension de la configuration d'un fichier manifest.yml, vous pouvez consulter les documentations suivantes : <a class="lienArticle En" href="https://docs.cloudfoundry.org/devguide/deploy-apps/manifest-attributes.html">1</a> , <a class="lienArticle En" href="https://spring.io/blog/2015/04/27/binding-to-data-services-with-spring-boot-in-cloud-foundry">2</a>.
+				</p>
+      </div>
+      
+		<h3 class="TitreSection1" id="LVI-D">VI-D. Publier l'application dans SAP Cloud Foundry<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>
+					Une fois que le fichier manifest.yml est construit et qu'il n'y a pas d'erreur, pour publier l'application dans SAP Cloud Foundry afin de la déployer automatiquement, il suffit d'ouvrir votre Terminal à l'emplacement où se trouve ce fichier et saisir la commande suivante :
+				</p>
+        <div class="code_et_titre"><div class="titre_des_codes" id="IdTitreCode-d0e2851">&nbsp;<div class="selectionner_code"><span class="selectionner_code LienSelectionne" id="code-d0e2851" onclick="selectionCode(&#39;contenuCoded0e2851&#39;, &#39;IdTitreCode-d0e2851&#39;);">Sélectionnez</span></div></div><pre class="code_uniquement" style="overflow:auto;"><code id="contenuCoded0e2851" class="contenuCode">cf push</code></pre></div>
+        <p>
+					Ce qui donne un résultat comme celui-ci :
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/cf-push.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/cf-push.JPG" alt="Exemple de résultat cf push" title="Exemple de résultat cf push" data-title="Exemple de résultat cf push" width="418" height="325" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+      </div>
+      
+		<h3 class="TitreSection1" id="LVI-E">VI-E. Vérifier la bonne livraison<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>
+					Lorsque la livraison des applications s'est bien passée suite à la commande <span class="italique">cf push</span>, vous pouvez à présent aller sur votre compte SAP Cloud Foundry dans le menu <span class="italique">Overview</span> :
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/overview.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/overview.JPG" alt="Onglet Overview SAP Cloud Foundry" title="Onglet Overview SAP Cloud Foundry" data-title="Onglet Overview SAP Cloud Foundry" width="550" height="252" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+        <p>
+					Sur cet écran, j'ai encerclé la zone qui présente le nombre d'applications (<span class="italique">library-ui</span> et <span class="italique">library</span>) que nous venons de livrer et la zone qui présente le nombre de services (<span class="italique">postgresql</span>) que nous avons provisionnés. Un clic sur chacun des petits liens <span class="italique">2</span> et <span class="italique">1</span> dans ces zones nous amène respectivement vers les écrans suivants où l'on peut observer que tout est fonctionnel et que les applications sont déployées et démarrées.
+				</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/apps-demarrees.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/apps-demarrees.JPG" alt="Applications library-ui et library démarrées" title="Applications library-ui et library démarrées" data-title="Applications library-ui et library démarrées" width="550" height="124" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;width:25%;">
+          <tbody><tr>
+            <td class="colonne" style="text-align:center;"><a data-lightbox="lightbox[article]" href="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/postgresql-created.JPG"><img src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/postgresql-created.JPG" alt="Service Postgresql" title="Service Postgresql" data-title="Service Postgresql" width="550" height="122" class="ImgCliquable image_verticale"></a> <br></td>
+          </tr>
+        </tbody></table></div>
+      </div>
+      
+		<h3 class="TitreSection1" id="LVI-F">VI-F. Démo de l'application<a class="HautPage" href="https://gkemayo.developpez.com/tutoriels/cloud-computing/deploiement-application-web-full-stack-angular-springboot-dans-cloud-foundry/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>
+					Compte tenu des configurations faites dans le développement et le packaging de l'application, le composant Front, le Back et le Swagger du Back répondent sur les URLs suivantes : 
+				</p>
+        <ul class="ListeDVP">
+          <li>
+            <a class="lienArticle https" href="https://library-ui.cfapps.eu10.hana.ondemand.com/library-ui/#/">https://library-ui.cfapps.eu10.hana.ondemand.com/library-ui/#/</a>
+          </li>
+          <li>
+            <a class="lienArticle https" href="https://library.cfapps.eu10.hana.ondemand.com/library/">https://library.cfapps.eu10.hana.ondemand.com/library/</a>
+          </li>
+          <li>
+            <a class="lienArticle https" href="https://library.cfapps.eu10.hana.ondemand.com/library/swagger-ui.html#/">https://library.cfapps.eu10.hana.ondemand.com/library/swagger-ui.html#/</a>
+          </li>
+        </ul>
+        <p>
+					Et ci-dessous une démo :
+				</p>
+        </div></div></section></div></section></article></div></section><iframe name="__tcfapiLocator" style="display: none;" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/saved_resource.html"></iframe><iframe src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/cmpiframe.html" id="_qc_cookie_access" style="display: none;"></iframe></body><iframe id="goog_plcm_frame" src="./Déploiement d&#39;une application web full stack Angular-SpringBoot dans Cloud Foundry_files/partnerpixels.html" style="display: none;"></iframe></html>

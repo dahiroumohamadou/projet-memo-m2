@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<!-- saved from url=(0109)https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/ -->
+<html lang="fr" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async="" type="text/javascript" src="./Le déploiement d&#39;applications pour les nuls_files/cmp2.js.téléchargement"></script><script async="" type="text/javascript" src="./Le déploiement d&#39;applications pour les nuls_files/choice.js.téléchargement"></script><script async="" src="./Le déploiement d&#39;applications pour les nuls_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KP5YVWZDRL');
+</script>
+	
+	<title>Le déploiement d'applications pour les nuls</title>
+	<link rel="canonical" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/">
+	<meta name="generator" content="developpez-com">
+	<meta name="description" content="Cet article explique le déploiement simple d&#39;applications">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Le déploiement d&#39;applications pour les nuls">
+	<meta property="og:image" content="https://www.developpez.com/template/images/logo.png">
+	<meta property="og:url" content="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:site_name" content="Developpez.com">
+	<meta property="twitter:card" content="summary">
+	<meta property="twitter:url" content="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/">
+	<meta property="twitter:description" content="Cet article explique le déploiement simple d&#39;applications">
+	<meta property="twitter:title" content="Le déploiement d&#39;applications pour les nuls">
+	<meta property="twitter:image" content="https://www.developpez.com/template/images/logo.png">
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/jquery-3.4.1.js.téléchargement"></script>
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/popper.js.téléchargement"></script>
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/bootstrap.bundle.min.js.téléchargement"></script>
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/bootstrap.js.téléchargement"></script>
+	<link rel="stylesheet" href="./Le déploiement d&#39;applications pour les nuls_files/bootstrap.css">
+	<link rel="stylesheet" href="./Le déploiement d&#39;applications pour les nuls_files/bootstrap-social.css">
+	<link rel="stylesheet" href="./Le déploiement d&#39;applications pour les nuls_files/all.min.css">
+	<link rel="stylesheet" href="./Le déploiement d&#39;applications pour les nuls_files/fontawesome.min.css">
+	<script async="" src="./Le déploiement d&#39;applications pour les nuls_files/compteurarticle"></script>
+	<script async="" src="./Le déploiement d&#39;applications pour les nuls_files/saved_resource"></script>
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+<script type="text/javascript" async="true">
+(function() {
+  var host = 'developpez.com';
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', 'rZ6Mx73PT_R7Q', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
+    }
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
+      }
+    }
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+	<script async="async" src="./Le déploiement d&#39;applications pour les nuls_files/f.txt"></script>
+	<script>
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+	</script>
+	<script async="" src="./Le déploiement d&#39;applications pour les nuls_files/f(1).txt"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="https://ibmcloud.developpez.com/template/favicon.ico">
+	<link rel="image_src" href="https://www.developpez.com/facebook-icon.png">
+	<link rel="stylesheet" type="text/css" href="./Le déploiement d&#39;applications pour les nuls_files/gabarit.css">
+	<link rel="stylesheet" type="text/css" media="print" href="./Le déploiement d&#39;applications pour les nuls_files/printer.css">
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/gabarit.js.téléchargement"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="./Le déploiement d&#39;applications pour les nuls_files/developpez-kit-generation.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./Le déploiement d&#39;applications pour les nuls_files/code.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./Le déploiement d&#39;applications pour les nuls_files/lightbox.css">
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/developpez-kit-generation.js.téléchargement"></script>
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/lightbox.js.téléchargement"></script>
+	<script src="./Le déploiement d&#39;applications pour les nuls_files/fonctions-kit.js.téléchargement"></script>
+	<meta name="author" content="John Wiley &amp; Sons, Inc.">
+	<!--[if lt IE 9]>
+	<script src="/template/kit/html5_ie.js"></script>
+	<![endif]-->
+	<!--[if IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie9.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/template/kit/ie8.css" /><![endif]-->
+	<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="/template/kit/ie.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/template/kit/ie7.css" /><![endif]-->
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/template/kit/ie6.css" /><![endif]-->
+	<!--[if lt IE 9]><script type="text/javascript" src="/template/kit/html5_ie.js"></script><![endif]-->
+
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="./Le déploiement d&#39;applications pour les nuls_files/f(2).txt" async=""></script><link href="https://securepubads.g.doubleclick.net/pagead/managed/dict/m202602050101/gpt" rel="compression-dictionary"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><style type="text/css">.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q{display:block!important;border:1px solid #cdcfd2!important;background-color:#fff!important;color:#373a3d!important;width:100vw!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-24GeGuJgk9LrMLp7qVvlyz{background:#6a7e89!important;color:#fff!important;padding:10px!important;font-size:18px!important;font-family:sans-serif!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-KVjdulkCFfUZps29EbgAC{background:#f3f6f8!important;border-bottom:1px solid #cdcfd2!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-KVjdulkCFfUZps29EbgAC>*{margin-right:10px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1OeZ2PQ98oAp6Vc5mMc6V5{list-style:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-vCwYmWF_l83ScZBrGnRoi,.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1OeZ2PQ98oAp6Vc5mMc6V5{margin:0!important;padding:0!important;width:100%!important;display:block!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-vCwYmWF_l83ScZBrGnRoi:not(:last-child){border-bottom:1px solid #cdcfd2!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1XQZkb-FlHWABUp4_uShaZ{color:inherit!important;cursor:pointer!important;width:100%!important;display:inline-block!important;margin:10px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1XTzMvb2XKitWz0mFLlyyp{margin:5px!important;display:block!important;width:auto!important;white-space:pre!important;overflow-x:scroll!important;background:inherit!important;color:inherit!important;font-family:monospace}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-1XTzMvb2XKitWz0mFLlyyp:not(.IN-e146f606-483d-4824-a598-79a778fddfb4-39QUvFFn5B7GMcqMQkOXZ3){display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-295DY3nO0DbJWMsOqmjCli{background:#f5f5f5!important;color:#5a5a5a!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-1aQZwu6CUzAf2zUcI7tg0Q .IN-e146f606-483d-4824-a598-79a778fddfb4-295DY3nO0DbJWMsOqmjCli{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-38EPFyKXMtoP12rPlmrHxs{background:#e6f7ff!important;color:#006097!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-3W4ZnQjhoGfT1gTNcqRXdi .IN-e146f606-483d-4824-a598-79a778fddfb4-38EPFyKXMtoP12rPlmrHxs{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-HGYnfzlmgOZ-l7eANhQe_{background:#fff3ea!important;color:#993a00!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-24e52A11B1UIErbKHtBmqc .IN-e146f606-483d-4824-a598-79a778fddfb4-HGYnfzlmgOZ-l7eANhQe_{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q .IN-e146f606-483d-4824-a598-79a778fddfb4-jji74ZzulHScD0OAD_G7h{background:#fef2f1!important;color:#b10823!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-3npS60y-EvfF7G_lioSx2Q.IN-e146f606-483d-4824-a598-79a778fddfb4-28jAOA7cDee-95LvwGsOP- .IN-e146f606-483d-4824-a598-79a778fddfb4-jji74ZzulHScD0OAD_G7h{display:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu{background-color:#0073b1!important;border:0!important;border-radius:2px!important;box-sizing:border-box!important;color:#fff!important;cursor:pointer!important;display:inline-block!important;font-family:-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif!important;font-weight:600!important;overflow:hidden!important;outline-width:2px!important;position:relative!important;text-align:center!important;text-decoration:none!important;vertical-align:middle!important;white-space:nowrap!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu:disabled{cursor:not-allowed!important;opacity:.7!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu:not(:disabled):not(.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy):hover{background-color:#006097!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu:not(:disabled):not(.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy):active{background-color:#004b7c!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy{background-color:#fff!important;color:#0073b1!important;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy:not(:disabled):hover{color:#006097!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1zhzkayakwEXovVYUbq5Gy:not(:disabled):active{color:#004b7c!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon{display:inline-block!important;height:100%!important;vertical-align:top!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon>svg{pointer-events:none!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr{font-size:10px!important;height:16px!important;line-height:16px!important;padding:0 6px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr>xdoor-icon{margin-left:-6px!important;margin-right:3px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr>xdoor-icon>svg{height:16px!important;width:16px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-7inSbaAsvG5bf7w6lJTEr.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-6px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6{font-size:11px!important;height:20px!important;line-height:20px!important;padding:0 7px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6>xdoor-icon,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon{margin-left:-7px!important;margin-right:3.5px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6>xdoor-icon>svg,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu>xdoor-icon>svg{height:20px!important;width:20px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-3uCBSbQNVNf2QjqHe1rfb6.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon,.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-7px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG{font-size:14px!important;height:24px!important;line-height:24px!important;padding:0 12px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG>xdoor-icon{margin-left:-12px!important;margin-right:6px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG>xdoor-icon>svg{height:24px!important;width:24px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-21Smv9YG-5V6M6KP-5v2WG.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-12px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q{font-size:16px!important;height:32px!important;line-height:32px!important;padding:0 16px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q>xdoor-icon{margin-left:-16px!important;margin-right:8px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q>xdoor-icon>svg{height:32px!important;width:32px!important}.IN-e146f606-483d-4824-a598-79a778fddfb4-1G9ISYhSF8XoOmdcl0yKDu.IN-e146f606-483d-4824-a598-79a778fddfb4-1TGdQUTLZdNG4R87OfAB-q.IN-e146f606-483d-4824-a598-79a778fddfb4-2lrEjt4SOTxqrYsv1piG4c>xdoor-icon{margin-right:-16px!important}</style><style type="text/css"> .qc-cmp-button.qc-cmp-secondary-button:hover {    background-color: #368bd6 !important;    border-color: transparent !important;  }  .qc-cmp-button.qc-cmp-secondary-button:hover {    color: #ffffff !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    color: #368bd6 !important;  }  .qc-cmp-button.qc-cmp-secondary-button {    background-color: #eee !important;    border-color: transparent !important;  } </style></head>
+<body>
+	<header>
+
+	<div id="gabarit_b1">
+		<div id="gabarit_connexion">
+	<form>
+		<div><span>Identifiant</span><input type="text" class="form_input form-control" id="formloginConnexion"><span>Mot de passe</span><input type="password" class="form_input form-control" id="formpassConnexion"><input type="button" value="Connexion" id="formbuttonConnexion" class="btn btn-primary"><div id="loadingConnexion" class="spinner-border text-light" role="status"><span class="sr-only">Loading...</span></div></div><a id="mdpoublier" href="http://www.developpez.net/forums/login.php?do=lostpw">Mot de passe oublié ?</a><a id="inscriptionConnexion" href="https://www.developpez.net/forums/inscription/" class="btn btn-primary">Je m'inscris ! (gratuit)</a>	
+	</form>
+</div>		<div id="gabarit-barreRecherche" style="display:none;"><form action="https://www.google.fr/" target="_blank">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-8110924381468607:6449306375">
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" name="q" size="12">
+    <input type="submit" name="sa" value="Rechercher">
+  </div>
+</form></div>
+<div id="gabarit-new-logo" role="gabarit-accueil">
+	<a href="https://www.developpez.com/"><img src="./Le déploiement d&#39;applications pour les nuls_files/logo-dvp-h55.png" alt="logo dvp" width="48" height="55"></a>
+	<a href="https://www.developpez.com/"><span class="dvp"></span></a>
+	<span class="triangle"></span>
+</div>
+<div id="gabarit_recherche">
+	<div class="gabarit-btn-menu profil dn" role="gabarit-profil" title="Se connecter"></div>
+	<div class="gabarit-btn-menu profil dn" role="gabarit-connecter"><span></span>
+	<a id="gabaritRepereLogout" class="btn btn-primary" title="Se déconnecter"></a></div>
+	<div class="gabarit-btn-menu options" role="gabarit-options" title="Options"></div>
+	<div class="gabarit-btn-menu contacts" role="gabarit-contacts" title="Nous contacter"></div>
+	<div class="gabarit-btn-menu recherche" role="gabarit-recherche" title="Rechercher"></div>
+</div>
+
+<div id="gabarit_superieur">
+	<nav>
+	<ul>
+		<li><a href="https://www.developpez.net/forums/" title="">Forums</a></li>
+		<li><a href="https://general.developpez.com/cours/" title="">Tutoriels</a></li>
+		<li><a href="https://general.developpez.com/faq/" title="">FAQ</a></li>
+		<li><a href="https://www.developpez.net/forums/blogs/" title="">Blogs</a></li>
+		<li><a href="https://chat.developpez.com/" title="">Chat</a></li>
+		<li><a href="https://www.developpez.com/newsletter/">Newsletter</a></li>
+		<li><a href="https://emploi.developpez.com/" title="">Emploi</a></li>
+		<li><a href="https://etudes.developpez.com/">Études</a></li>
+		<li><a href="https://droit.developpez.com/" title="">Droit</a></li>
+		<li><a href="https://club.developpez.com/">Club</a></li>
+	</ul>
+	</nav>
+</div>	</div>
+	<nav>
+
+<ul id="gabarit_menu" style="padding-left:56px;">
+	<li><a href="https://www.developpez.com/" data-idrub="1" data-niv="1" style="padding:0;"><div id="gabarit_home"></div></a>
+			</li>
+	<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="1">DI/DSI Solutions d'entreprise<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://solutions-entreprise.developpez.com/" data-idrub="86" data-niv="2">DI/DSI Solutions d'entreprise</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://bpm.developpez.com/" data-idrub="134" data-niv="2">BPM</a></li>
+				<li><a href="https://business-intelligence.developpez.com/" data-idrub="61" data-niv="2">Business Intelligence</a></li>
+				<li><a href="https://data-science.developpez.com/" data-idrub="151" data-niv="2">Data Science</a></li>
+				<li><a href="https://solutions-entreprise.developpez.com/erp-pgi/presentation-erp-pgi/" data-idrub="91" data-niv="2">ERP / PGI</a></li>
+				<li><a href="https://crm.developpez.com/" data-idrub="92" data-niv="2">CRM</a></li>
+				<li><a href="https://sas.developpez.com/" data-idrub="93" data-niv="2">SAS</a></li>
+				<li><a href="https://sap.developpez.com/" data-idrub="106" data-niv="2">SAP</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://droit.developpez.com/" data-idrub="132" data-niv="2">Droit informatique et entreprise</a></li>
+				<li><a href="https://onlyoffice.developpez.com/" data-idrub="149" data-niv="2">OnlyOffice</a></li>
+			</ul></li>
+	<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="1">Cloud<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://cloud-computing.developpez.com/" data-idrub="103" data-niv="2">Cloud Computing</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Azure</a></li>
+				<li><a href="https://ibmcloud.developpez.com/" data-idrub="135" data-niv="2">IBM Cloud</a></li>
+			</ul></li>
+	<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="1">IA<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://intelligence-artificielle.developpez.com/" data-idrub="143" data-niv="2">Intelligence artificielle</a></li>
+			</ul></li>
+	<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="1">ALM<!--<span class="gabarit_tooltip">Cycle de vie du logiciel</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://alm.developpez.com/" data-idrub="42" data-niv="2">ALM</a></li>
+				<li><a href="https://agile.developpez.com/" data-idrub="146" data-niv="2">Agile</a></li>
+				<li><a href="https://merise.developpez.com/" data-idrub="43" data-niv="2">Merise</a></li>
+				<li><a href="https://uml.developpez.com/" data-idrub="12" data-niv="2">UML</a></li>
+			</ul></li>
+	<li><a href="https://microsoft.developpez.com/" data-idrub="150" data-niv="1">Microsoft<!----></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://microsoft.developpez.com/" data-idrub="150" data-niv="2">Microsoft</a></li>
+				<li><a href="https://dotnet.developpez.com/" data-idrub="20" data-niv="2">.NET</a></li>
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://dotnet.developpez.com/aspnet/" data-idrub="83" data-niv="2">ASP.NET</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://dotnet.developpez.com/vbnet/" data-idrub="82" data-niv="2">VB.NET</a></li>
+				<li><a href="https://windows-azure.developpez.com/" data-idrub="107" data-niv="2">Azure</a></li>
+			</ul></li>
+	<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="1">Java<!--<span class="gabarit_tooltip">Plateforme et langage Java</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://java.developpez.com/" data-idrub="4" data-niv="2">Java</a></li>
+				<li><a href="https://javaweb.developpez.com/" data-idrub="97" data-niv="2">Java Web</a></li>
+				<li><a href="https://spring.developpez.com/" data-idrub="87" data-niv="2">Spring</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+			</ul></li>
+	<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="1">Dév. Web<!--<span class="gabarit_tooltip">Développement Web et Webmarketing</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://web.developpez.com/" data-idrub="8" data-niv="2">Développement et hébergement Web</a></li>
+				<li><a href="https://ajax.developpez.com/" data-idrub="85" data-niv="2">AJAX</a></li>
+				<li><a href="https://apache.developpez.com/" data-idrub="71" data-niv="2">Apache</a></li>
+				<li><a href="https://asp.developpez.com/" data-idrub="10" data-niv="2">ASP</a></li>
+				<li><a href="https://css.developpez.com/" data-idrub="51" data-niv="2">CSS</a></li>
+				<li><a href="https://dart.developpez.com/" data-idrub="125" data-niv="2">Dart</a></li>
+				<li><a href="https://flash.developpez.com/" data-idrub="41" data-niv="2">Flash / Flex</a></li>
+				<li><a href="https://javascript.developpez.com/" data-idrub="45" data-niv="2">JavaScript</a></li>
+				<li><a href="https://nodejs.developpez.com/" data-idrub="141" data-niv="2">NodeJS</a></li>
+				<li><a href="https://php.developpez.com/" data-idrub="9" data-niv="2">PHP</a></li>
+				<li><a href="https://ruby.developpez.com/" data-idrub="53" data-niv="2">Ruby &amp; Rails</a></li>
+				<li><a href="https://typescript.developpez.com/" data-idrub="127" data-niv="2">TypeScript</a></li>
+				<li><a href="https://web-semantique.developpez.com/" data-idrub="111" data-niv="2">Web sémantique</a></li>
+				<li><a href="https://webmarketing.developpez.com/" data-idrub="80" data-niv="2">Webmarketing</a></li>
+				<li><a href="https://xhtml.developpez.com/" data-idrub="50" data-niv="2">(X)HTML</a></li>
+			</ul></li>
+	<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="1">EDI<!--<span class="gabarit_tooltip">Environnements de Développement Intégré</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://edi.developpez.com/" data-idrub="90" data-niv="2">EDI</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://delphi.developpez.com/" data-idrub="2" data-niv="2">Delphi</a></li>
+				<li><a href="https://eclipse.developpez.com/" data-idrub="55" data-niv="2">Eclipse</a></li>
+				<li><a href="https://jetbrains.developpez.com/" data-idrub="144" data-niv="2">JetBrains</a></li>
+				<li><a href="https://labview.developpez.com/" data-idrub="72" data-niv="2">LabVIEW</a></li>
+				<li><a href="https://netbeans.developpez.com/" data-idrub="66" data-niv="2">NetBeans</a></li>
+				<li><a href="https://matlab.developpez.com/" data-idrub="58" data-niv="2">MATLAB</a></li>
+				<li><a href="https://scilab.developpez.com/" data-idrub="120" data-niv="2">Scilab</a></li>
+				<li><a href="https://visualstudio.developpez.com/" data-idrub="84" data-niv="2">Visual Studio</a></li>
+				<li><a href="https://wind.developpez.com/" data-idrub="74" data-niv="2">WinDev</a></li>
+				<li><a href="https://vb.developpez.com/" data-idrub="5" data-niv="2">Visual Basic 6</a></li>
+				<li><a href="https://lazarus.developpez.com/" data-idrub="96" data-niv="2">Lazarus</a></li>
+				<li><a href="https://qt-creator.developpez.com/" data-idrub="109" data-niv="2">Qt Creator</a></li>
+			</ul></li>
+	<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="1">Programmation<!--<span class="gabarit_tooltip">Programmation et langages de programmation applicatifs</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://programmation.developpez.com/" data-idrub="119" data-niv="2">Programmation</a></li>
+				<li><a href="https://algo.developpez.com/" data-idrub="47" data-niv="2">Débuter - Algorithmique</a></li>
+				<li><a href="https://jeux.developpez.com/" data-idrub="38" data-niv="2">2D - 3D - Jeux</a></li>
+				<li><a href="https://asm.developpez.com/" data-idrub="16" data-niv="2">Assembleur</a></li>
+				<li><a href="https://c.developpez.com/" data-idrub="3" data-niv="2">C</a></li>
+				<li><a href="https://cpp.developpez.com/" data-idrub="59" data-niv="2">C++</a></li>
+				<li><a href="https://dotnet.developpez.com/csharp/" data-idrub="81" data-niv="2">C#</a></li>
+				<li><a href="https://d.developpez.com/" data-idrub="123" data-niv="2">D</a></li>
+				<li><a href="https://go.developpez.com/" data-idrub="124" data-niv="2">Go</a></li>
+				<li><a href="https://kotlin.developpez.com/" data-idrub="145" data-niv="2">Kotlin</a></li>
+				<li><a href="https://objective-c.developpez.com/" data-idrub="117" data-niv="2">Objective C</a></li>
+				<li><a href="https://pascal.developpez.com/" data-idrub="7" data-niv="2">Pascal</a></li>
+				<li><a href="https://perl.developpez.com/" data-idrub="29" data-niv="2">Perl</a></li>
+				<li><a href="https://python.developpez.com/" data-idrub="27" data-niv="2">Python</a></li>
+				<li><a href="https://rust.developpez.com/" data-idrub="137" data-niv="2">Rust</a></li>
+				<li><a href="https://swift.developpez.com/" data-idrub="128" data-niv="2">Swift</a></li>
+				<li><a href="https://qt.developpez.com/" data-idrub="65" data-niv="2">Qt</a></li>
+				<li><a href="https://xml.developpez.com/" data-idrub="11" data-niv="2">XML</a></li>
+				<li><a href="https://general.developpez.com/cours/" data-idrub="21" data-niv="2">Autres</a></li>
+			</ul></li>
+	<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="1">SGBD<!--<span class="gabarit_tooltip">Systèmes de Gestion de Bases de Données</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://sgbd.developpez.com/" data-idrub="13" data-niv="2">SGBD &amp; SQL</a></li>
+				<li><a href="https://4d.developpez.com/" data-idrub="39" data-niv="2">4D</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://big-data.developpez.com/" data-idrub="126" data-niv="2">Big Data</a></li>
+				<li><a href="https://data-science.developpez.com/" data-idrub="151" data-niv="2">Data Science</a></li>
+				<li><a href="https://db2.developpez.com/" data-idrub="36" data-niv="2">DB2</a></li>
+				<li><a href="https://firebird.developpez.com/" data-idrub="73" data-niv="2">Firebird</a></li>
+				<li><a href="https://interbase.developpez.com/" data-idrub="32" data-niv="2">InterBase</a></li>
+				<li><a href="https://mysql.developpez.com/" data-idrub="31" data-niv="2">MySQL</a></li>
+				<li><a href="https://nosql.developpez.com/" data-idrub="114" data-niv="2">NoSQL</a></li>
+				<li><a href="https://postgresql.developpez.com/" data-idrub="33" data-niv="2">PostgreSQL</a></li>
+				<li><a href="https://oracle.developpez.com/" data-idrub="25" data-niv="2">Oracle</a></li>
+				<li><a href="https://sybase.developpez.com/" data-idrub="37" data-niv="2">Sybase</a></li>
+				<li><a href="https://sqlserver.developpez.com/" data-idrub="34" data-niv="2">SQL-Server</a></li>
+				<li><a href="https://mongodb.developpez.com/" data-idrub="148" data-niv="2">MongoDB</a></li>
+			</ul></li>
+	<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="1">Office<!--<span class="gabarit_tooltip">Bureautique pour l'entreprise</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://office.developpez.com/" data-idrub="54" data-niv="2">Microsoft Office</a></li>
+				<li><a href="https://access.developpez.com/" data-idrub="19" data-niv="2">Access</a></li>
+				<li><a href="https://excel.developpez.com/" data-idrub="75" data-niv="2">Excel</a></li>
+				<li><a href="https://word.developpez.com/" data-idrub="76" data-niv="2">Word</a></li>
+				<li><a href="https://outlook.developpez.com/" data-idrub="77" data-niv="2">Outlook</a></li>
+				<li><a href="https://powerpoint.developpez.com/" data-idrub="78" data-niv="2">PowerPoint</a></li>
+				<li><a href="https://sharepoint.developpez.com/" data-idrub="79" data-niv="2">SharePoint</a></li>
+				<li><a href="https://project.developpez.com/" data-idrub="99" data-niv="2">Microsoft Project</a></li>
+				<li><a href="https://openoffice-libreoffice.developpez.com/" data-idrub="116" data-niv="2">OpenOffice &amp; LibreOffice</a></li>
+				<li><a href="https://onlyoffice.developpez.com/" data-idrub="149" data-niv="2">OnlyOffice</a></li>
+			</ul></li>
+	<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="1">Mobiles<!--<span class="gabarit_tooltip">Logiciels et matériels mobiles</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://mobiles.developpez.com/" data-idrub="94" data-niv="2">Mobiles</a></li>
+				<li><a href="https://android.developpez.com/" data-idrub="95" data-niv="2">Android</a></li>
+				<li><a href="https://ios.developpez.com/" data-idrub="101" data-niv="2">iOS</a></li>
+			</ul></li>
+	<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="1">Systèmes<!--<span class="gabarit_tooltip">Logiciels et matériels systèmes</span>--></a>
+			<ul class="gabarit_sousmenu">
+				<li><a href="https://systeme.developpez.com/" data-idrub="30" data-niv="2">Systèmes</a></li>
+				<li><a href="https://windows.developpez.com/" data-idrub="17" data-niv="2">Windows</a></li>
+				<li><a href="https://linux.developpez.com/" data-idrub="18" data-niv="2">Linux</a></li>
+				<li><a href="https://arduino.developpez.com/" data-idrub="142" data-niv="2">Arduino</a></li>
+				<li><a href="https://hardware.developpez.com/" data-idrub="64" data-niv="2">Hardware</a></li>
+				<li><a href="https://hpc.developpez.com/" data-idrub="139" data-niv="2">HPC</a></li>
+				<li><a href="https://mac.developpez.com/" data-idrub="57" data-niv="2">Mac</a></li>
+				<li><a href="https://raspberry-pi.developpez.com/" data-idrub="131" data-niv="2">Raspberry Pi</a></li>
+				<li><a href="https://reseau.developpez.com/" data-idrub="70" data-niv="2">Réseau</a></li>
+				<li><a href="https://green-it.developpez.com/" data-idrub="104" data-niv="2">Green IT</a></li>
+				<li><a href="https://securite.developpez.com/" data-idrub="40" data-niv="2">Sécurité</a></li>
+				<li><a href="https://embarque.developpez.com/" data-idrub="110" data-niv="2">Systèmes embarqués</a></li>
+				<li><a href="https://virtualisation.developpez.com/" data-idrub="108" data-niv="2">Virtualisation</a></li>
+				<li><a href="https://quantique.developpez.com/" data-idrub="153" data-niv="2">Informatique quantique</a></li>
+				<li><a href="https://crypto.developpez.com/" data-idrub="154" data-niv="2">Crypto, NFT &amp; Blockchain</a></li>
+			</ul></li>
+</ul>
+
+<ul id="gabarit_barre1"><li class="gabarit_selection"><a href="https://applications.developpez.com/">Applications</a></li><li><a href="https://open-source.developpez.com/">Libres &amp; Open Source</a></li><li><a href="https://openoffice-libreoffice.developpez.com/">OpenOffice &amp; LibreOffice</a></li><li><a href="https://portail-projets.developpez.com/">Projets</a></li></ul>
+
+<div id="gabarit_barre2">
+	<a class="gabarit_social gabarit_facebook" href="http://www.facebook.com/pages/Applications/109320749102806" target="_blank" title="Retrouver Developpez sur Facebook"></a>
+	<a class="gabarit_social gabarit_twitter" href="http://twitter.com/ApplicationsDVP" target="_blank" title="Retrouver Developpez sur Twitter"></a>
+	<a class="gabarit_social gabarit_rss" href="http://applications.developpez.com/index/rss" target="_blank" title="Flux RSS"></a>
+	<ul>
+<li><a href="https://www.developpez.net/forums/f181/logiciels/autres-logiciels/">Logiciels</a></li><li><a href="https://www.developpez.net/forums/f1254/applications/sig-systeme-dinformation-geographique/">Systèmes d'information Géographique</a></li><li><a href="https://www.developpez.net/forums/f1263/systemes/autres-systemes/automation/robotique/">Robotique</a></li><li><a href="https://www.developpez.net/forums/f478/autres-langages/perl/bioinformatique/">Bioinformatique</a></li><li><a href="https://applications.developpez.com/livres/">Livres</a></li>	</ul>
+</div>
+
+</nav>
+
+
+	</header>
+	<section>
+
+	<div id="gabarit_pubBB">
+		<div id="kv88nd0h" class="dvpb0" style="display: inline-block; width: 728px; height: 90px"></div>
+	</div>
+
+	<div class="contenuPage">
+		<article class="ArticleComplet" itemscope="" itemtype="https://schema.org/Article">
+<meta itemprop="genre" content="informatique">
+<meta itemprop="inLanguage" content="fr-FR">
+		<h1 class="titre-article" itemprop="name">Le déploiement d'applications pour les Nuls</h1><section>
+
+<nav class="nav-sommaire" role="navigation">
+<h2 class="TitreHeader ToggleGecko">Table des matières<img class="ToggleImgPlier" title="Plier" alt="Plier" src="./Le déploiement d&#39;applications pour les nuls_files/fleche-haut-bleue.png"><img class="ToggleImgDeplier" title="Déplier" alt="Déplier" src="./Le déploiement d&#39;applications pour les nuls_files/fleche-bas-bleue.png" style="display:none;"></h2>
+<ul id="nav_sommaire_ul_principal" class="nav-sommaire-ul">
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L1">1. Introduction</a></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2">2. Quels éléments permettent un déploiement et une livraison efficace&nbsp;?</a><ul class="nav-sommaire-ul Indentation2">
+      
+      
+      
+      
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-1">2-1. Suivre le cycle de vie du développement logiciel</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-2">2-2. Tirer profit d'un déploiement efficace</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-3">2-3. Accélérer la mise sur le marché</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-4">2-4. Réduire les pannes coûteuses</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-5">2-5. Estimation du coût d'une panne</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-6">2-6. Effectuer des déploiements complexes</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-7">2-7. Identifier les pratiques de livraison de logiciels</a><ul class="nav-sommaire-ul Indentation2-7">
+        
+        
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-7-1">2-7-1. Agile</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-7-2">2-7-2. Intégration continue</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-7-3">2-7-3. Livraison continue</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-7-4">2-7-4. ITIL</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L2-8">2-8. Adopter une approche DevOps pour la livraison de logiciels</a></li>
+    </ul></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3">3. Normaliser le processus de déploiement</a><ul class="nav-sommaire-ul Indentation3">
+      
+      
+      
+      
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-1">3-1. Les trois piliers du déploiement</a><ul class="nav-sommaire-ul Indentation3-1">
+        
+        
+        
+        
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-1-1">3-1-1. Utiliser le même processus</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-1-2">3-1-2. Automatiser</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-1-3">3-1-3. Effectuer des modifications incrémentielles</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-2">3-2. Les bénéfices de la normalisation du déploiement </a><ul class="nav-sommaire-ul Indentation3-2">
+        
+        
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-2-1">3-2-1. Automatiser et utiliser le même processus de déploiement</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-2-2">3-2-2. Effectuer des changements incrémentiels</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L3-2-3">3-2-3. Gérer les défauts</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L4">4. Choisir des solutions pour le déploiement d'applications</a><ul class="nav-sommaire-ul Indentation4">
+      
+      
+      
+      
+      
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L4-1">4-1. Se préparer aux changements</a><ul class="nav-sommaire-ul Indentation4-1">
+        
+        
+        
+        
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L4-1-1">4-1-1. Modifier les rôles</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L4-1-2">4-1-2. Changer les processus et les solutions</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L4-2">4-2. Évaluer les solutions de déploiement</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L4-3">4-3. Évaluer les solutions de coordination des déploiements</a></li>
+    </ul></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5">5. Mettre en place la solution</a><ul class="nav-sommaire-ul Indentation5">
+      
+      
+      
+      
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-1">5-1. Mettre en œuvre une solution d'automatisation du déploiement d'applications</a><ul class="nav-sommaire-ul Indentation5-1">
+        
+        
+        
+        
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-1-1">5-1-1. Choisir le moment idéal pour le déploiement</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-1-2">5-1-2. Créer un environnement semblable à la production</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-1-3">5-1-3. Déployer comme s'il s'agissait de la production</a></li>
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-1-4">5-1-4. Concevoir d'abord pour la production</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-2">5-2. Mettre en œuvre une solution de coordination des déploiements</a><ul class="nav-sommaire-ul Indentation5-2">
+        
+        
+        
+        <li><a class="summaryIndent2" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-2-1">5-2-1. Identifier un modèle de déploiement réaliste</a></li>
+      </ul></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L5-3">5-3. Choisir un chemin de mise en œuvre</a></li>
+    </ul></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6">6. Dix mythes à propos du déploiement d'applications</a><ul class="nav-sommaire-ul Indentation6">
+      
+      
+      
+      
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-1">6-1. L'automatisation du déploiement implique la rédaction de scripts</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-2">6-2. Les équipes de développement créent les meilleurs processus de déploiement</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-3">6-3. Les déploiements complexes peuvent être facilement gérés sans solutions spécialisées</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-4">6-4. La livraison continue implique des mises en production constantes</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-5">6-5. L'automatisation réduit la qualité et le contrôle</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-6">6-6. Une feuille de calcul est un bon outil de gestion du déploiement</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-7">6-7. Un grand déploiement est moins risqué que plusieurs petits</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-8">6-8. L'automatisation est indépendante du processus de développement</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-9">6-9. Un retard des éléments à déployer n'indique pas un problème DevOps</a></li>
+      <li><a class="summaryIndent1" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L6-10">6-10. Les solutions de coordination des déploiements règlent tous les problèmes</a></li>
+    </ul></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L7">7. La simplicité avant tout</a></li>
+    <li><a class="summaryIndent0" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#L8">8. Remerciements </a></li>
+  </ul></nav>
+
+<div class="contenu">
+
+<section itemprop="about" class="SectionSynopsis">
+    <p>Dans ce cours de Erick Minick, Jeffrey Rezabek, et Claudia Ring, vous aurez l'occasion d'apprendre à&nbsp;:</p>
+    <ul class="ListeDVP">
+      <li>évaluer et améliorer vos méthodes actuelles de livraison des logiciels&nbsp;;</li>
+      <li>adopter des normes de déploiement pour une livraison rapide d'applications de qualité&nbsp;;</li>
+      <li>réussir la mise en œuvre de solutions de déploiements d'applications.</li>
+    </ul>
+    <p>Vous pouvez tester le déploiement de vos applications web, mobile, big data sur <a class="lienArticle https" href="https://www.developpez.com/redirect/2179" target="_blank">IBM Bluemix</a>.</p>
+    <p>N'hésitez pas à commenter ce cours sur le forum&nbsp;: <a class="lienforum" href="https://www.developpez.net/forums/showthread.php?t=1554753">Commentez</a> <img src="./Le déploiement d&#39;applications pour les nuls_files/kitstars-5-0.png" width="66" height="14" style="border: none" alt="Donner une note à l´article (5)"> 
+ ?</p>
+  <p class="TextNbrVues">Article lu <span id="NbrVues">&nbsp;</span> fois.</p></section><div class="InfoAuthArtBook">
+	<section class="SectionAuteurs">
+	<h2 class="TitreHeader">L'auteur</h2>
+<p class="auteur" itemprop="name" itemscope="" itemtype="http://schema.org/Person"><span itemprop="author" class="auteur-non-dvp">John Wiley &amp; Sons, Inc.</span></p>
+</section>
+<section class="SectionInformationArticle">
+<h2 class="TitreHeader">L'article</h2>
+
+<p class="InfoArticle">Publié&nbsp;le&nbsp;<span itemprop="datePublished">11&nbsp;novembre&nbsp;2015&nbsp;</span></p>
+    
+    
+<p class="InfoArticle"><img alt="Public visé : tout le monde" src="./Le déploiement d&#39;applications pour les nuls_files/public-vise-1.png"></p>
+  <p>
+<span class="lientelechargementpdf"><a class="lientelechargement" href="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/deploiement-applications-nuls.pdf" title="Télécharger la version PDF de cet article.">Version PDF</a></span>
+<span class="lientelechargementzip"><a class="lientelechargement" href="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/deploiement-applications-nuls.zip" title="Télécharger la version HTML de cet article.">Version hors-ligne</a></span></p>
+<p><span class="lientelechargementebook"><a class="lientelechargement" href="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/deploiement-applications-nuls.epub" title="Télécharger la version ePub de l&#39;article compatible avec la plupart des liseuses non Kindle (Amazon).">ePub</a></span>, <span class="lientelechargementebook"><a class="lientelechargement" href="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/deploiement-applications-nuls.azw" title="Télécharger la version Azw spécifique aux liseuses Kindle (Amazon).">Azw</a></span> et <span class="lientelechargementebook"><a class="lientelechargement" href="https://bluemix.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/deploiement-applications-nuls.mobi" title="Télécharger la version Mobi de l&#39;article compatible avec les liseuses Amazon.">Mobi</a></span></p>
+</section>
+<section class="SectionBookmarks">
+<h2 class="TitreHeader">Liens&nbsp;sociaux</h2>
+<div class="InfoBookmarks"><a title="Viadeo" href="http://www.viadeo.com/shareit/share/?url=https%3A%2F%2Fbluemix.developpez.com%2Ftutoriels%2Fdeveloppement-applications%2Fdeploiements-applications-pour-les-nuls%2F&amp;Title=Le+d%C3%83%C2%A9ploiement+d%27applications+pour+les+Nuls" rel="nofollow"><img alt="Viadeo" src="./Le déploiement d&#39;applications pour les nuls_files/kitbm-viadeo.png"></a>&nbsp;<a title="Twitter" href="http://twitter.com/timeline/home?status=https%3A%2F%2Fbluemix.developpez.com%2Ftutoriels%2Fdeveloppement-applications%2Fdeploiements-applications-pour-les-nuls%2F" rel="nofollow"><img alt="Twitter" src="./Le déploiement d&#39;applications pour les nuls_files/kitbm-twitter.png"></a>&nbsp;<a title="Facebook" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fbluemix.developpez.com%2Ftutoriels%2Fdeveloppement-applications%2Fdeploiements-applications-pour-les-nuls%2F" rel="nofollow"><img alt="Facebook" src="./Le déploiement d&#39;applications pour les nuls_files/kitbm-facebook.png"></a>&nbsp;<a title="Google +" href="https://plus.google.com/share?url=https%3A%2F%2Fbluemix.developpez.com%2Ftutoriels%2Fdeveloppement-applications%2Fdeploiements-applications-pour-les-nuls%2F" onclick="javascript:window.open(this.href, &#39;&#39;, &#39;menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600&#39;);return false;"><img src="./Le déploiement d&#39;applications pour les nuls_files/gplus-16.png" alt="Share on Google+"></a>&nbsp;<script src="./Le déploiement d&#39;applications pour les nuls_files/in.js.téléchargement">lang: fr_FR</script>
+			<script type="IN/Share" data-url="$url"></script>&nbsp;</div>
+</section></div><section itemprop="articleBody" class="articleBody">
+    
+		<h2 class="TitreSection0" id="L1">1. Introduction<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <div class="TextAlign-center"><table class="tableau" style="border-width:0px;">
+        <tbody><tr>
+          <td class="colonne" style="">
+            <div class="div-figure"><figure class="figure-center"><a data-lightbox="lightbox[article]" href="./Le déploiement d&#39;applications pour les nuls_files/1000000000000132000001DCC9274B4C.png"><img class="ImgCliquable figure-img-caption" src="./Le déploiement d&#39;applications pour les nuls_files/1000000000000132000001DCC9274B4C.png" alt="Image non disponible" width="209" height="325"></a></figure></div>
+          </td>
+        </tr>
+      </tbody></table></div>
+      <p>Vous apprendrez à&nbsp;:</p>
+      <ul class="ListeDVP">
+        <li>évaluer et améliorer vos méthodes actuelles de livraison des logiciels&nbsp;;</li>
+        <li>adopter des normes de déploiement pour une livraison rapide d'applications de qualité&nbsp;;</li>
+        <li>réussir la mise en œuvre de solutions de déploiements d'applications.</li>
+      </ul>
+      <p>Les applications logicielles génèrent d'importants revenus pour les entreprises, et le déploiement rapide de ces applications est devenu un élément essentiel du cycle de vie d'une entreprise. En effet, quel intérêt y a-t-il à créer une application innovante si vous ne pouvez pas la déployer rapidement dans des environnements de test, ou la proposer aux utilisateurs dans les délais prévus&nbsp;?</p>
+      <p>Généralement, le déploiement se définit comme la promotion de composants d'un environnement vers le suivant. La gestion du déploiement englobe le déploiement de toute une application ou de plusieurs applications intégrées dans l'environnement de production.</p>
+      <p>La coordination des déploiements et les déploiements proprement dits ont des objectifs similaires. Les termes sont souvent utilisés indifféremment. Nous vous indiquons comment tirer profit des solutions de déploiement pour aider votre entreprise à accélérer la mise sur le marché, abaisser les coûts et réduire le risque.</p>
+      <p>
+        <b>À</b>
+        <b> propos de cet ouvrage</b>
+      </p>
+      <p>Nous avons rédigé cet ouvrage pour fournir une introduction relativement simple à ce qui peut constituer un sujet très complexe. Utilisez-le comme une référence, et non comme un manuel. Si certains sujets vous intéressent plus que d'autres, n'hésitez pas à lire seulement certains chapitres. N'hésitez pas également à feuilleter l'ouvrage. Vous n'avez pas besoin de lire les chapitres dans l'ordre.</p>
+      <p>
+        <b>Au-delà de l'ouvrage</b>
+      </p>
+      <p>Tout au long de cet ouvrage, nous évoquons les avantages des solutions de déploiement, automatisation et coordination du déploiement des applications. Nous incluons quelques témoignages de clients du secteur ainsi que des bonnes pratiques.</p>
+      <p>Vous trouverez également plus d'informations sur le lancement et le déploiement d'applications en visitant les pages Web sui­vantes&nbsp;:</p>
+      <ul class="ListeDVP">
+        <li>solutions IBM DevOps pour le lancement et le déploiement d'applications&nbsp;: <a class="lienArticle simple" href="http://ibm.co/devopsRaD" target="_blank">http://ibm.co/devopsRaD</a>;</li>
+        <li>page du produit IBM UrbanCode Deploy&nbsp;: <a class="lienArticle simple" href="http://ibm.co/UCDeploy" target="_blank">http://ibm.co/UCDeploy</a>;</li>
+        <li>page du produit IBM UrbanCode Release&nbsp;: <a class="lienArticle simple" href="http://ibm.co/UCRelease" target="_blank">http://ibm.co/UCRelease</a>;</li>
+        <li>7 pratiques éprouvées pour renforcer la gestion des ver­sions&nbsp;: <a class="lienArticle simple" href="http://ibm.co/7ProvenPractices" target="_blank">http://ibm.co/7ProvenPractices</a>;</li>
+        <li>l'ABC du déploiement continu dans une approche DevOps&nbsp;: <a class="lienArticle simple" href="http://ibm.co/ABCsRaD" target="_blank">http://ibm.co/ABCsRaD</a>.</li>
+      </ul>
+      <p>Enfin, vous pouvez lire les autres ouvrages pour les Nuls en édition limitée IBM&nbsp;:</p>
+      <ul class="ListeDVP">
+        <li>DevOps For Dummies (DevOps pour les Nuls)&nbsp;: <a class="lienArticle simple" href="http://ibm.co/devopsfordummies" target="_blank">ibm.co/devopsfordummies</a>&nbsp;;</li>
+        <li>Agile For Dummies (Agile pour les Nuls)&nbsp;: <a class="lienArticle simple" href="http://ibm.co/agilefordummies" target="_blank">ibm.co/agilefordummies</a>&nbsp;;</li>
+        <li>Service Virtualization For Dummies (La virtualisation des services pour les Nuls )&nbsp;: <a class="lienArticle simple" href="http://ibm.co/servicevirtualization" target="_blank">ibm.co/servicevirtualization</a>.</li>
+      </ul>
+    </div>
+    
+		<h2 class="TitreSection0" id="L2">2. Quels éléments permettent un déploiement et une livraison efficace&nbsp;?<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+        <span class="italique">
+          <b>Dans ce chapitre</b>
+        </span>
+      </p>
+      <ul class="ListeDVP">
+        <li>Suivre le cycle de vie du développement logiciel</li>
+        <li>Comprendre les bénéfices métier d'une livraison efficace des logiciels</li>
+        <li>Présentation des pratiques techniques qui pilotent le développement d'applications</li>
+      </ul>
+      <p>Une application suit une longue série d'étapes avant d'être pro­posée aux utilisateurs en production. Ce processus est connu sous le nom de cycle de vie du développement logiciel (Software Development Life Cycle). Dans ce chapitre, nous passons en revue les étapes de ce cycle. Puis nous examinons les enjeux métier et techniques du déploiement et de la livraison de logiciels.</p>
+      
+		<h3 class="TitreSection1" id="L2-1">2-1. Suivre le cycle de vie du développement logiciel<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Le SDLC peut intégrer tous les aspects du cycle de vie d'une applica­tion, de la planification initiale jusqu'à son retrait de la production. Dans cette section, nous examinons une partie importante du SDLC que nous appelons le pipeline de livraison, qui est généralement composé de plusieurs environnements, c'est-à-dire des cibles de déploiement pour un ensemble d'éléments, qui travaillent ensemble à la réalisation d'un objectif commun. L'enchaînement des environne­ments permet d'améliorer et de vérifier la qualité d'une application avant qu'elle ne devienne accessible par les utilisateurs. Il n'y a pas un nombre idéal d'environnements, mais nous avons identifié quatre grands types d'environnements.</p>
+        <ul class="ListeDVP">
+          <li><b>Développement (DEV)&nbsp;:</b> dans l'environnement de Développement, les développeurs créent et déploient du code dans un laboratoire où l'application est testée au niveau le plus élémentaire. Lorsque l'application satisfait certains critères de qualité, elle passe à l'environnement suivant.</li>
+          <li><b>Test d'intégration système (SIT)&nbsp;:</b> dans l'environnement Test d'intégration système, l'application est testée pour garantir qu'elle fonctionne avec les applications et systèmes existants. Lorsque l'application réussit les tests d'intégration, elle est déployée dans l'environnement suivant.</li>
+          <li><b>Test d'acceptation des utilisateurs (UAT)&nbsp;:</b> dans l'environne­ment test d'acceptation des utilisateurs, l'application est testée pour s'assurer qu'elle fournit les fonctionnalités requises pour les utilisateurs finals. Cet environnement est généralement proche de celui de la production (voir Chapitre 4). Lorsque l'application répond à ces exigences, elle est promue vers l'envi­ronnement final.</li>
+          <li><b>Production (PROD)&nbsp;:</b> dans l'environnement Production, l'appli­cation est mise à la disposition des utilisateurs. L'analyse du comportement utilisateur de l'application (voir l'encadré) est obtenue en surveillant la disponibilité et la fonctionnalité de l'application. Tous les mises à jour ou correctifs sont intro­duits dans l'environnement DEV et suivent le même cycle.</li>
+        </ul>
+        <p>La Figure 1-1 montre un simple diagramme de ces quatre environne­ments.</p>
+        <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="./Le déploiement d&#39;applications pour les nuls_files/figure 1-1.png" alt="Image non disponible" width="439" height="85"><figcaption class="figure-img-caption TextAlign-center">Figure 1-1&nbsp;: Les quatre environnements élémentaires du SLDC</figcaption></figure></div>
+        <p>Un déploiement se définit comme la promotion de composants d'une application depuis un environnement vers le suivant. Une release comprend le déploiement de toute une application ou de plusieurs applications intégrées dans un environnement de production.</p>
+        <p>La Figure 1-2 illustre la différence.</p>
+        <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="./Le déploiement d&#39;applications pour les nuls_files/figure 1-2.png" alt="Image non disponible" width="417" height="185"><figcaption class="figure-img-caption TextAlign-center">Figure 1-2&nbsp;: Visualisation de la différence entre une livraison et un déploiement</figcaption></figure></div>
+        <div class="imgtext-info">
+          <p>
+            <b>Exécution d'une boucle de rétroaction</b>
+          </p>
+          <p>Certaines pratiques de livraison de logiciels impliquent la surveillance de l'ap­plication dans tous les environnements puis le renvoi des analyses à l'équipe de développement. En fonction des nouvelles exigences, l'équipe de déve­loppement déploie l'application modifiée dans l'environnement DEV, et le cycle démarre à nouveau. Après la promotion vers chacun des environnements suc­cessifs, l'application est supervisée, et les réactions des utilisateurs sont ren­voyées à l'équipe de développement. Ce processus est connu sous le nom de boucle de rétroaction (ou feedback loop).</p>
+        </div>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-2">2-2. Tirer profit d'un déploiement efficace<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Le besoin de fournir des logiciels qui s'adaptent et répondent aux attentes des entreprises et des clients renforce la nécessité de dis­poser de meilleures méthodes de lancement et de déploiement des applications. L'IBM Institute of Business Value signale que le nombre d'entreprises qui valorisent la livraison efficace des logiciels dépasse largement le nombre d'entreprises qui fournissent réellement une livraison efficace des logiciels. Consultez la Figure 1-3 pour plus d'informations.</p>
+        <p>Dans les sections suivantes, nous examinons certains des avantages d'une livraison efficace des logiciels.</p>
+        <div class="TextAlign-center"><table class="tableau" style="border-width:0px;">
+          <tbody><tr>
+            <td class="colonne" style="">
+              <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="./Le déploiement d&#39;applications pour les nuls_files/figure 1-3.png" alt="Image non disponible" width="423" height="223"><figcaption class="figure-img-caption TextAlign-center">Figure 1-3&nbsp;: La valeur ajoutée d'une livraison efficace des logiciels</figcaption></figure></div>
+            </td>
+          </tr>
+        </tbody></table></div>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-3">2-3. Accélérer la mise sur le marché<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Le temps d'attente que les clients sont prêts à accepter pour obtenir un nouveau service ne cesse de diminuer. Les clients s'attendent à une disponibilité instantanée. Songez à la fréquence à laquelle vos applications mobiles nécessitent des mises à jour demandées par les clients. Si un service n'est pas disponible au moment exact où le souhaite un client, ce client peut passer en un clic sur la page Web d'un concurrent.</p>
+        <p>Avec les méthodes adaptées de lancement et de déploiement des applications, aussi bien les entreprises qui démarrent que celles qui sont déjà établies peuvent fournir rapidement les services qu'attendent les clients. La livraison efficace des logiciels constitue un élément essentiel du succès de l'entreprise. Fournir à vos équipes de gestion du déploiement des processus et outils adéquats peut faire la différence entre une réussite sur du long terme et un échec.</p>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-4">2-4. Réduire les pannes coûteuses<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Le coût d'un échec du déploiement dépend de l'environnement dans lequel l'échec a eu lieu. Dans l'ensemble, les échecs dans les environnements tels que DEV et SIT (voir la Figure 1-1 plus haut dans ce chapitre) sont beaucoup moins coûteux que les échecs en production. Déceler une erreur d'application dans ces environnements vous permet d'effectuer une correction qui peut empêcher une interruption critique en production ou pire, une panne pour les utilisateurs. Forbes.com a remarqué qu'au cours de l'été 2013, Amazon a connu une panne de 30 minutes qui a entraîné une perte estimée à 66 240 $ par minute, soit près de 2 millions de $ de perte de chiffre d'affaires totale.</p>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-5">2-5. Estimation du coût d'une panne<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Une panne peut non seulement provoquer une perte de chiffre d'af­faires, mais peut également engen­drer des coûts supplémentaires pour corriger le problème. Vous pouvez commencer l'estimation en calcu­lant le salaire horaire d'un ingénieur chargé de corriger le problème. Les coûts supplémentaires représentent de 20 % à 40 % environ du salaire. Voici la formule&nbsp;:</p>
+        <p>Salaire annuel estimé / 52 semaines par an / 40 heures par semaine * 1,3</p>
+        <p>Si vous avez un ingénieur qui touche 80 000 $ par exemple, une estimation raisonnable du coût total horaire est&nbsp;: </p>
+        <p>80 000 / 52 / 40 * 1,3 = 50 $</p>
+        <p>Utilisez maintenant cette formule pour toutes les personnes de l'équipe qui tentent de régler le problème, et multipliez le résultat par le nombre d'heures moyen passées à entre­prendre les actions correctives. Si une équipe de six personnes passe dix heures à régler le problème lié au déploiement d'une version, le coût est de 3 000 $ pour cette seule version. Toutefois, ce coût est sim­plement un coût de productivité&nbsp;; il ne tient pas compte du coût d'oppor­tunité&nbsp;: la perte de chiffres d'affaires ou la perte potentielle intangible de crédibilité due à la panne.</p>
+        <p>Le coût de la panne renforce la nécessité de meilleures pratiques de déploiement des applications. Dans les derniers chapitres, nous étu­dions les moyens de prévenir la venue de ces pannes.</p>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-6">2-6. Effectuer des déploiements complexes<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Les entreprises ont désormais de plus en plus de cibles de déploie­ment sur de nombreux serveurs&nbsp;: en local, sur le cloud, ou sur des machines physiques et virtuelles. Il est difficile de faire évoluer un processus principalement manuel en un système efficace de gestion de mises en production d'applications interdépendantes à l'échelle de l'entreprise, tout en maintenant la sécurité, la visibilité et la traçabilité.</p>
+        <p>Le nombre d'étapes manuelles contenues dans le déploiement d'une seule application peut constituer un processus laborieux, mais l'application finit toujours par se retrouver en production.</p>
+        <p>Avec des déploiements plus importants et complexes, le risque augmente avec le nombre d'applications interdépendantes en cours de déploiement. Les processus manuels associés aux solutions de suivi des versions, telles que les feuilles de calcul, favorisent l'erreur humaine et inévitablement, les échecs de déploiements coûteux.</p>
+        <p>À mesure que les applications évoluent pour s'adapter à la com­plexité de l'entreprise, les équipes de déploiement s'agrandissent pour comporter des dizaines ou des centaines de personnes, ajou­tant alors une couche de complexité supplémentaire. Lorsque les équipes informatiques évoluent pour gérer la complexité des appli­cations, les responsabilités et spécialités de chaque intervenant deviennent plus divisées, et la communication devient moins fré­quente lorsque les équipes réalisent leurs processus respectifs. Les divisions en silos se produisent en raison de la spécialisation des postes, ainsi que des différents fuseaux horaires et emplacements géographiques. Des équipes dispersées qui utilisent des solutions et processus différents, découvrent souvent que ces différences doublent ou triplent leurs efforts et les empêchent de livrer à temps.</p>
+        <p>La coordination de chaque déploiement, chaque processus et chaque ensemble d'étapes manuelles est presque impossible à exécuter sans l'utilisation d'un outil spécialisé. Ce dernier peut vous aider à coordonner chaque déploiement, chaque processus et chaque ensemble d'étapes du déploiement, et les rend visibles à chaque personne impliquée.</p>
+        <p>Si vous avez dix étapes pour déployer un composant sur un serveur, et que vous passez d'un à dix serveurs, vous passez de dix étapes manuelles à 100. Puis, si vous passez d'un composant de déploie­ment à dix composants, vous avez un autre facteur multiplicateur de dix, produisant ainsi 1000 étapes manuelles. Les processus manuels ne pourront pas évoluer à mesure que ces trois niveaux de complexité (nombre d'éléments déployés, nombre de serveurs, et nombre d'étapes par déploiement) s'associent pour provoquer une croissance exponentielle.</p>
+        <p>Les entreprises capables de mettre en place un processus efficace de déploiement peuvent suivre le rythme des équipes de dévelop­pement tout en lançant de petites mises à jour d'applications, voire de nouvelles versions. Définir un processus efficace réduit le risque d'erreur et permet à l'entreprise de se concentrer sur la satisfaction rapide des besoins métier.</p>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-7">2-7. Identifier les pratiques de livraison de logiciels<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>De nombreuses pratiques et méthodologies de livraison de logi­ciels permettent aux entreprises d'accélérer la mise sur le marché, de réduire les erreurs, et de changer d'échelle efficacement. De nombreuses entreprises utilisent une combinaison de plusieurs approches. Parmi les pratiques les plus populaires se trouvent Agile, l'intégration continue, la Livraison continue et ITIL, autant d'approches que nous examinerons dans les sections suivantes. Les pratiques Agile, Intégration continue et Livraison continue reposent les unes sur les autres pour aider à pousser les applications vers la production.</p>
+        
+		<h4 class="TitreSection2" id="L2-7-1">2-7-1. Agile<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>À mesure que la technologie fait de grandes avancées, les clients deviennent moins patients et plus exigeants. Le rythme de change­ment nécessaire pour rester compétitif a motivé l'adoption des pra­tiques Agiles.</p>
+          <p>La méthode Agile met l'accent sur les besoins du client, les petits déploiements fréquents, l'intégration du changement, et la collabo­ration entre les membres de l'équipe de développement. Contrai­rement à la méthode de développement logiciel traditionnelle en cascade, Agile met moins l'accent sur la planification précise, afin que les développeurs ne restent pas enfermés dans des plans impossibles à modifier. Agile se concentre sur des livraisons plus petites qui per­mettent aux développeurs d'apporter des modifications au besoin.</p>
+          <p>Pour plus d'informations, voir Agile For Dummies (Agile pour les Nuls), une édition limitée IBM, sur <a class="lienArticle simple" href="http://ibm.co/agilefordummies">ibm.co/agilefordummies</a>.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L2-7-2">2-7-2. Intégration continue<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>L'Intégration continue (Continuous Integration) est dérivée du prin­cipe Agile consistant à intégrer le code et tester les développements régulièrement pour valider ces modifications intégrées. À l'aide de la CI, les développeurs s'engagent en faveur d'une ligne de développement commune et intègrent leurs modifications à celles des autres membres d'équipe et au code existant. En partageant le code rapidement, ils évitent les difficultés de la phase d'intégration tardive de la méthodologie en cascade, et détectent les problèmes plus tôt. Les développeurs doivent s'engager à chaque fois qu'un petit bloc de code est terminé, et généralement, au moins une fois par jour.</p>
+          <p>La CI est facilitée par l'utilisation d'une solution qui intègre automa­tiquement les nouvelles modifications lorsqu'elles sont enregistrées. Le test de vérification automatique accompagne souvent le dévelop­pement automatique afin que les défauts puissent être détectés et corrigés plus rapidement. Cette fonctionnalité est particulièrement puissante lorsqu'elle est associée à la «&nbsp;Livraison continue&nbsp;», examinée dans la section suivante.</p>
+          <div class="imgtext-warning">
+            <p>Combinée aux pratiques de développement Agiles, la CI constitue une autre étape vers des déploiements à grande fréquence et de meilleure qualité. Elle permet aux équipes de développement de produire des développements (builds) testables à un rythme très élevé. Elle fait également peser une plus grande pression sur les équipes des opérations pour déployer plus fréquemment vers des environnements de production.</p>
+          </div>
+        </div>
+        
+		<h4 class="TitreSection2" id="L2-7-3">2-7-3. Livraison continue<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>La livraison continue (Continuous Delivery) est la dernière amé­lioration de CI et permet de déployer automatiquement des builds successifs qui ont été qualifiés pour des environnements de tests, déclenchant ainsi des tests automatisés. Les tests qui mettent en œuvre la CD visent à toujours faire tester les builds, afin de per­mettre à l'entreprise de choisir de déployer des fonctionnalités à tout moment, en toute confiance.</p>
+          <p>La livraison continue tient son nom du Manifeste Agile et a été créée en réponse aux goulots d'étranglement que les pratiques Agile et CI exposaient aux équipes des opérations. À mesure que les équipes de développement ont commencé à évoluer rapidement et à produire un grand volume de builds, les équipes des opérations ont été sou­mises à des pressions d'accélération des déploiements qu'il fallait promouvoir vers la production. Des différences en termes de lan­gage, plateforme , environnement et test ont accentué la pression sur les équipes des opérations, qui recherchaient des moyens de garantir les déploiements des applications.</p>
+          <p>Le simple fait qu'un professionnel de l'informatique affirme prati­quer la Livraison continue (CD) ne signifie pas qu'il effectue tout le déploiement jusqu'à la production. Il peut avoir mis en œuvre des pratiques de CD, mais peut se heurter à des blocages ailleurs dans le SDLC. Ces blocages contribuent à une augmentation expo­nentielle du risque, car des modifications plus nombreuses s'accu­mulent dans des lots toujours plus volumineux qui attendent d'être déployés en une seule fois. La pratique idéale de la CD utilise l'au­tomatisation pour transférer une application jusqu'à la production, mais il y a beaucoup d'obstacles à surmonter avant d'en tirer des bénéfices pour toute l'entreprise. Nous traitons ces obstacles dans le Chapitre 3.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L2-7-4">2-7-4. ITIL<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>L'ITIL (Information Technology Infrastructure Library) est un ensemble de bonnes pratiques et processus qui aident à la gestion des services informatiques. L'ITIL est composée de cinq principaux cycles de vie qui conseillent les professionnels sur les bonnes pra­tiques pour fournir des services spécifiques aux utilisateurs.</p>
+          <p>Les concepts de l'ITIL fournissent des pratiques non prescriptives et non propriétaires pouvant être utilisées dans n'importe quel secteur. La plupart des entreprises qui utilisent l'ITIL le font, car elles ont besoin de gouvernance, de gestion du risque et de contrôle de leurs lancements et déploiements.</p>
+          <div class="imgtext-info">
+            <p>Certains fournisseurs ITIL sont réticents à automatiser, car ils pensent qu'aller plus vite les expose à un risque accru de commettre des erreurs. En fait, l'automatisation peut réduire les risques et amé­liorer le contrôle, la visibilité et l'auditabilité.</p>
+          </div>
+        </div>
+      </div>
+      
+		<h3 class="TitreSection1" id="L2-8">2-8. Adopter une approche DevOps pour la livraison de logiciels<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>DevOps est une approche visant à délivrer les logiciels en continu. Elle permet aux clients de saisir plus rapidement les opportunités du marché et d'accélérer la prise en compte des retours clients. DevOps applique les principes Agile et <a class="lienArticle https" href="https://fr.wikipedia.org/wiki/Lean">lean</a> tout au long de la chaîne de fabrication des logiciels pour supprimer les pertes de temps et les goulots d'étranglement. DevOps est composée de quatre fonc­tionnalités majeures dans tout le SDLC&nbsp;:</p>
+        <ul class="ListeDVP">
+          <li>la fonction Planifier et mesurer se concentre sur les divi­sions commerciales et leurs processus de planification. Cela implique la compréhension et l'augmentation des mesures d'efficacité de ces processus et du portefeuille d'applications qu'ils couvrent&nbsp;;</li>
+          <li>la fonction Développer et tester se concentre sur le développe­ment collaboratif, la CI et le test continu. Elle se concentre sur la rationalisation des fonctionnalités des équipes de dévelop­pement et de test&nbsp;;</li>
+          <li>la fonction Déployer permet la création du Pipeline de déploie­ment dans le cadre du déploiement continu&nbsp;;</li>
+          <li>la fonction Surveiller et optimiser inclut les pratiques de surveillance continue, retours clients et optimisation pour surveil­ler les performances des applications après leur déploiement en production, permettant ainsi aux entreprises de faire évoluer leurs exigences si nécessaire.<br>
+			Pour plus d'informations sur Dev Ops, voir DevOps For Dummies (DevOps pour les Nuls) sur <a class="lienArticle simple" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/fichiers/devopsfordummies">ibm.co/devopsfordummies</a>.</li>
+        </ul>
+        <p>La mise en œuvre de solutions de coordination des versions et d'automatisation du déploiement sont des éléments clés pour résoudre un problème DevOps dans votre entreprise, comme nous l'évoquons dans les Chapitres 4 et 5.</p>
+      </div>
+    </div>
+    
+		<h2 class="TitreSection0" id="L3">3. Normaliser le processus de déploiement<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+        <span class="italique">
+          <b>Dans ce chapitre</b>
+        </span>
+      </p>
+      <ul class="ListeDVP">
+        <li>Présentation des trois piliers du processus de déploiement</li>
+        <li>Observation des impacts d'un processus de déploiement</li>
+      </ul>
+      <p>Dans ce chapitre, nous mettons l'accent sur les enjeux des métiers et technologiques (voir Chapitre 2) en appliquant un processus de déploiement normalisé. À la fin du chapitre, nous indiquons comment l'application d'un processus de déploiement peut affecter de façon positive une mise en production.</p>
+      
+		<h3 class="TitreSection1" id="L3-1">3-1. Les trois piliers du déploiement<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Pour garantir un lancement d'application réussi, commencez par mettre en œuvre les trois piliers du processus de déploiement&nbsp;:</p>
+        <ul class="ListeDVP">
+          <li>utiliser le même processus&nbsp;;</li>
+          <li>automatiser&nbsp;;</li>
+          <li>effectuer des modifications incrémentielles.</li>
+        </ul>
+        <p>Nous examinons ces piliers en détail dans les sections suivantes.</p>
+        
+		<h4 class="TitreSection2" id="L3-1-1">3-1-1. Utiliser le même processus<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>L'un des principaux problèmes concernant l'évolution de déploie­ments d'application vers des volumes plus importants et plus com­plexes, réside dans le fait que les équipes divisées en silos créent des processus personnalisés pour s'adapter à leurs propres besoins. Le déploiement doit varier en fonction des équipes.</p>
+          <ul class="ListeDVP">
+            <li>Les développeurs veulent effectuer le déploiement et les tests rapidement pour proposer davantage de modifications d'application. Ils créent souvent des raccourcis dans le processus de déploiement en rédigeant des scripts ou en éludant certaines étapes fastidieuses qui peuvent être néces­saires aux performances de l'application en production.</li>
+            <li>Les équipes de test luttent pour suivre le rythme des équipes de développement, mais elles sont également conscientes de la nécessité de prendre leur temps pour tester à la fois le processus de développement et les applica­tions. Ces équipes créent souvent leurs propres processus de déploiement pour parvenir au test plus rapidement et éviter les retards.</li>
+            <li>Les équipes des opérations peuvent accepter un rythme plus lent. Étant chargées de garantir que les systèmes stratégiques restent en bon état de fonctionnement, elles ne peuvent assumer les risques associés à des déploiements rapides. Leur processus de déploiement est conçu pour garantir le bon fonctionnement de l'environnement de production.</li>
+          </ul>
+          <p>Lorsque les processus de déploiement diffèrent entre les équipes et environnements cibles, le risque d'erreurs augmente. Les étapes non documentées, les différences environnementales et le manque de contribution de toutes les équipes augmentent le risque d'échec du déploiement.</p>
+          <p>Pour réduire le risque provenant de l'utilisation de processus de déploiement différents, utilisez le même processus de déploiement lors de la promotion d'un environnement à l'autre tout au long du cycle de développement de logiciels (SDLC) et dans l'ensemble du pipeline de livraison continue jusqu'à la production.</p>
+          <p>Lorsque vous utilisez le même processus de déploiement dans tout le SDLC, vous pouvez tester à la fois l'application et le processus de déploiement.</p>
+          <p>La méthode préférée de standardisation du processus de déploiement consiste à commencer votre conception dans la production, puis à travailler à reculons. Bien que cette pratique exige plus de réflexion, de temps et d'effort en amont, si vous concevez d'abord le processus pour le transfert en production, vous pouvez supprimer toutes les étapes inutiles à mesure que vous reculez vers les environnements précédents. Nous examinons ce sujet plus en détail au Chapitre 5.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L3-1-2">3-1-2. Automatiser<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>Les étapes manuelles ou semi-programmées d'un processus de déploiement augmentent le risque d'échec du déploiement. Même les opérateurs qualifiés commettent des erreurs, et l'erreur est plus probable lorsque les humains doivent exécuter une longue série d'étapes manuelles. Un processus de déploiement (automatisé ou manuel) doit inclure des passerelles ou approbations prédéfinies qu'une équipe doit passer ou obtenir pour que le déploiement entre dans la phase suivante. Toutefois, l'automatisation du processus de déploiement vous aide à évoluer, accélérer la mise sur le marché, et réduire le risque.</p>
+          <p>En automatisant ce que vous pouvez du processus de déploiement, vous gagnez en conformité et en auditabilité grâce à une meilleure visibilité des éléments suivants&nbsp;:</p>
+          <ul class="ListeDVP">
+            <li>quels composants sont inclus dans le déploiement&nbsp;;</li>
+            <li>qui a déployé quelle application&nbsp;;</li>
+            <li>où l'application a été déployée&nbsp;;</li>
+            <li>quelle version de l'application a été déployée&nbsp;;</li>
+            <li>quand l'application a été déployée.</li>
+          </ul>
+          <p>La traçabilité et la visibilité sont deux éléments clés d'un processus de lancement et de déploiement rationalisé, et vous pouvez les obtenir grâce à une automatisation adaptée, comme nous l'exami­nons dans le Chapitre 5.</p>
+          <div class="imgtext-warning">
+            <p>Il existe une différence entre l'automatisation et la rédaction de quelques scripts qu'un expert doit ensuite lancer. La véritable automatisation supprime les risques de modification d'éléments, et permet aux intervenants en ayant l'autorisation de lancer un déploiement d'un simple clic. En outre, la véritable automatisation offre des fonctionnalités de déploiement en libre-service, de visibilité et de traçabilité.</p>
+          </div>
+          <p>L'automatisation du déploiement est un facteur d'une telle importance dans le déploiement réussi d'applications, que lorsque nous mentionnons le déploiement d'applications dans cet ouvrage, nous faisons référence au déploiement d'applications via l'automatisation.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L3-1-3">3-1-3. Effectuer des modifications incrémentielles<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>Le pilier final d'un processus de déploiement consiste à effectuer des modifications d'application incrémentielles. Idéalement, votre solution d'automatisation déploie uniquement les composants qui ont besoin d'être modifiés et laisse les autres intacts, car le redéploiement de composants inchangés comporte un risque. Le déploiement de ce qui a été modifié uniquement permet de déployer plus souvent et à la demande. Quand vous connaissez les modifi­cations apportées à l'application, vous avez une véritable gestion des versions&nbsp;: qu'est-ce qui est déployé, quand, où et par qui. Vous pouvez déployer plus souvent et à la demande lorsque des actions très répétitives sont automatisées, et lorsque des barrières de niveau de qualité (critères que doit respecter une application avant d'avancer vers les environnements suivants) sont créées. Si vous utilisez le même processus pour chaque déploiement, il est plus facile et rapide d'effectuer des petits changements d'application. Les petites modifications d'application sont plus faciles à promouvoir vers les environnements de test puis dans les environnements de production.</p>
+          <p>Lorsque vous effectuez des modifications incrémentielles, vous n'utilisez pas nécessairement le processus de déploiement complet. Pour effectuer des modifications incrémentielles, configurez simple­ment le processus de déploiement et utilisez uniquement la partie du processus qui est nécessaire au déploiement des modifications incrémentielles.</p>
+        </div>
+      </div>
+      
+		<h3 class="TitreSection1" id="L3-2">3-2. Les bénéfices de la normalisation du déploiement <a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>L'utilisation des trois piliers d'un processus de déploiement (voir la section précédente) peut vous aider à aligner les besoins métier de votre entreprise avec ses besoins techniques, ce qui peut avoir des effets positifs sur le déploiement des applications. Cette section examine certains de ces effets.</p>
+        
+		<h4 class="TitreSection2" id="L3-2-1">3-2-1. Automatiser et utiliser le même processus de déploiement<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>Lorsque vous utilisez le même processus de déploiement automatisé sur plusieurs cycles de vie applicatifs, vous affectez considérablement l'ensemble du déploiement. Le déploiement est moins propice aux erreurs et son exécution prend moins de temps.</p>
+          <div class="imgtext-info">
+            <p>
+              <b>Éviter</b>
+              <b> l'Effet du lundi matin</b>
+            </p>
+            <p>L'Effet du lundi matin se produit le lundi suivant un week-end de déploiement majeur, lorsque l'équipe de déploiement fait face à de nombreux problèmes après un déploiement, tels qu'une interruption de la production ou des défauts dans l'application. L'équipe de déploiement doit prendre des mesures correctives immédiates et difficiles. Le redémarrage du déploiement, la correction de l'erreur ou des erreurs, et l'exclusion d'autres possibilités sans entraîner de période d'arrêt importante sont presque impossibles. Si la restauration ne se produit pas immédiatement ou si la solution ne s'avère pas immédiatement évidente, le résultat est l'Effet du lundi matin. Pour éviter l'Effet du lundi matin, les déploiements doivent être automatisés, les équipes doivent utiliser des processus de déploiement similaires, les modifications doivent être introduites de façon incrémentielle, et l'activité de lancement doit être visible de toutes les personnes concernées par le lancement.</p>
+          </div>
+        </div>
+        
+		<h4 class="TitreSection2" id="L3-2-2">3-2-2. Effectuer des changements incrémentiels<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>L'exécution d'un déploiement majeur est risquée, mais le déploiement d'un lancement majeur de plusieurs applications est encore plus dangereux. Le déploiement de petits lots de modifications est moins risqué et plus facile à gérer.</p>
+          <p>En outre, la gestion des défauts dans un petit déploiement et leur correction sont beaucoup plus faciles dans des lots réduits (voir la section suivante).</p>
+          <p>Pour lancer et déployer à la demande, vous devez disposer d'un processus rationalisé. Pour cette raison, l'amélioration continue de votre processus de déploiement standard et l'automatisation des tâches propices aux erreurs sont les clés de déploiements incrémentiels réussis et de lancements rapides.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L3-2-3">3-2-3. Gérer les défauts<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>Les petits déploiements sont moins risqués que les grands, car ils réduisent le nombre d'anomalies potentielles pouvant provoquer une erreur ou une panne. Trois éléments peuvent contribuer à l'apparition d'anomalies&nbsp;: le code, la configuration et la complexité. La complexité fait ici référence au nombre d'interdépendances ou de relations dans le déploiement.</p>
+          <p>Alors que les défauts du code et de la configuration augmentent les risques linéairement à mesure que la taille des lots augmente, les défauts liés à la complexité augmentent les risques de façon exponentielle. Comme l'indique la Figure 2-1, si vous avez trois composants en cours de déploiement, vous avez trois relations à gérer, mais si vous ajoutez un seul composant supplémentaire lors du déploiement, vous avez six relations à gérer. Vous pouvez observer que l'ajout d'une application supplémentaire double encore les relations et crée davantage de complexité, et par conséquent, de risque.</p>
+          <div class="TextAlign-center"><table class="tableau" style="border-width:0px;">
+            <tbody><tr>
+              <td class="colonne" style="">
+                <div class="div-figure"><figure class="figure-center"><img class="figure-img-caption" src="./Le déploiement d&#39;applications pour les nuls_files/figure 2-1.png" alt="Image non disponible" width="405" height="94"><figcaption class="figure-img-caption TextAlign-center">Figure 2-1&nbsp;: Compréhension des relations et de la complexité</figcaption></figure></div>
+              </td>
+            </tr>
+          </tbody></table></div>
+          <p>Pour les entreprises qui utilisent des processus de déploiement manuel ou des déploiements lents pour obtenir un meilleur contrôle de la qualité, le risque de défaillance augmente de façon exponentielle. Les phases de déploiements importants chargés d'interdépendances comportent le risque de multiples erreurs. Toutefois, l'utilisation du même processus de déploiement, l'automatisation des tâches manuelles, et l'exécution de modifications incrémentielles permettent de rationaliser le processus de déploiement.</p>
+          <p>Pour plus d'informations sur la gestion des risques et échecs de déploiement, rendez-vous sur <a class="lienArticle simple" href="http://ibm.co/UCVlog4">http://ibm.co/UCVlog4</a>.</p>
+        </div>
+      </div>
+    </div>
+    
+		<h2 class="TitreSection0" id="L4">4. Choisir des solutions pour le déploiement d'applications<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+        <span class="italique">
+          <b>Dans ce chapitre</b>
+        </span>
+      </p>
+      <ul class="ListeDVP">
+        <li>Préparer votre entreprise au changement</li>
+        <li>Évaluer les solutions de déploiement</li>
+        <li>Rechercher une solution de coordination des déploiements</li>
+      </ul>
+      <p>Gérer votre application au moyen du pipeline de développement et de livraison, tout en coordonnant le processus global de déploiement automatisé exige des solutions spécifiques. Les solutions d'automatisation du déploiement d'applications et les solutions de coordination des mises en production sont conçues pour déployer des applications de qualité le plus rapidement possible.</p>
+      <p>Dans ce chapitre, nous examinons comment préparer votre entreprise aux changements que ces solutions impliquent. Nous présentons ensuite des critères élémentaires pour évaluer ces solutions.</p>
+      
+		<h3 class="TitreSection1" id="L4-1">4-1. Se préparer aux changements<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Avant de commencer à rechercher une solution, souvenez-vous des objectifs des outils d'automatisation et de coordination du déploiement d'applications&nbsp;:</p>
+        <ul class="ListeDVP">
+          <li>accélérer la mise sur le marché&nbsp;: augmenter la fréquence de livraison et la conformité des logiciels avec à une transparence de bout en bout, une meilleure auditabilité, et une réduction des délais de retour clients&nbsp;;</li>
+          <li>réduire les coûts&nbsp;: réduire la quantité de travail manuel, le temps d'attente des ressources, et la répétition des tâches en éliminant les anomalies et en fournissant des déploie­ments en libre-service&nbsp;;</li>
+          <li>réduire le risque&nbsp;: fournir des applications de bonne qualité au moyen de processus de déploiements automatisés et reproductibles dans les environnements de développement, test et production.</li>
+        </ul>
+        <div class="imgtext-warning">
+          <p>Habituer vos collaborateurs aux changements peut constituer l'étape la plus longue et la plus difficile dans le processus de mise en œuvre, mais cela est indispensable pour rationaliser les pratiques et automatiser entièrement les déploiements.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L4-1-1">4-1-1. Modifier les rôles<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>Certains des changements les plus importants que vous ferez concernent les tâches individuelles des membres des équipes et les interactions entre ces membres. Avec la méthode Agile, les membres de vos équipes devraient être prêts à ajuster la façon dont ils interagissent ainsi que la fréquence de ces interactions. Ils doivent également être prêts à accepter les solutions d'automatisation et les nouveaux rôles qu'ils joueront au sein de l'organisation.</p>
+          <p>Examinez avec la direction comment les rôles des collaborateurs vont évoluer afin de garantir aux employés que les solutions d'automatisation les aideront à accomplir leurs tâches quotidiennes. Ces solutions n'ont pas vocation à remplacer la compétence humaine&nbsp;; elles permettent plutôt de réduire la quantité de tâches manuelles répétitives et risquées. En permettant aux collaborateurs de se concentrer sur les tâches qui exigent davantage de réflexion, elles facilitent le résultat que l'entreprise souhaite obtenir.</p>
+          <p>Essayez de trouver un sponsor interne qui perçoit les bénéfices associés au changement. Celui-ci peut apporter un éclairage et un point de vue sur les effets à long terme de la solution. Un sponsor au niveau de l'équipe, qui utilise déjà la nouvelle solution, donne à ses pairs une occasion de découvrir les avantages de la part d'une personne confrontée aux mêmes difficultés.</p>
+          <p>Vous devez introduire ce changement culturel le plus tôt possible. Le chapitre 5 vous donne une estimation générale du temps que peuvent prendre plusieurs changements.</p>
+        </div>
+        
+		<h4 class="TitreSection2" id="L4-1-2">4-1-2. Changer les processus et les solutions<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h4><div class="BlocSection2">
+          
+          <p>À mesure que les personnes et interactions changent pour répondre aux besoins et objectifs de l'entreprise, il en va de même des fonctions quotidiennes de l'entreprise. Lors de l'introduction de la solution que vous souhaitez utiliser, sachez que vous rencontrerez une certaine résistance. Maintenez votre équipe motivée, et préparez-vous à une période de résolution de problèmes. La réalisation du premier projet important va obliger tout le monde à se confronter à la solution, au nouveau processus, et à découvrir le moyen le plus efficace d'interagir.</p>
+          <p>Si vous apportez simplement les nouvelles solutions sans préparer votre équipe de façon adéquate, vous avez peu de chance de réussir à les mettre en œuvre. Des changements en matière de processus, de personnes et d'interactions sont également nécessaires pour atteindre votre objectif.</p>
+        </div>
+      </div>
+      
+		<h3 class="TitreSection1" id="L4-2">4-2. Évaluer les solutions de déploiement<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Les solutions d'automatisation du déploiement d'applica­tions gèrent les composants d'application et leurs versions.</p>
+        <p>Elles assurent le suivi de l'environnement de chaque version déployée. Ces solutions sont essentielles aux pratiques de déploiement d'applications, comme nous l'expliquerons plus loin dans ce chapitre.</p>
+        <p>Lorsque vous recherchez une solution d'automatisation du déploiement, selon les objectifs de votre entreprise, vous devez rechercher une solution dotée des fonctionnalités suivantes&nbsp;:</p>
+        <ul class="ListeDVP">
+          <li>réutilisation des processus de déploiement dans les différents environnements&nbsp;;</li>
+          <li>coordination des déploiements d'application sur plusieurs environnements&nbsp;;</li>
+          <li>intégration aux technologies existantes&nbsp;;</li>
+          <li>gestion de la sécurité basée sur les rôles&nbsp;;</li>
+          <li>gestion des logs de toutes les commandes exécutées lors des déploiements&nbsp;;</li>
+          <li>traçabilité sur qui a déployé quelle version d'un artefact sur quelle cible.</li>
+        </ul>
+        <p>Priorisez les fonctionnalités dont votre entreprise a le plus besoin pour atteindre les objectifs. Votre entreprise souhaite peut-être garantir l'auditabilité et la gouvernance ou minimiser l'effort requis pour réussir les audits. Dans ce cas, la capacité de la solution à fournir une sécurité basée sur les rôles et à offrir des logs de déploiement est plus importante que ses autres fonctionnalités.</p>
+        <div class="imgtext-info">
+          <p>
+            <b>Déploiement réussi avec IBM UrbanCode Deploy</b>
+          </p>
+          <p>Un organisme financier développait une nouvelle plateforme de transac­tions ayant vocation à être l'élé­ment vital de l'organisation. L'équipe de développement a utilisé les pratiques de développement agile pour produire des résultats plus rapidement, mais le processus de déploiement des applications sur des centaines de serveurs constituait une opération principalement manuelle, avec une personnalisation nécessaire pour chaque application. L'introduction des pratiques de développement agile a en fait provoqué une accumulation des changements pour l'équipe des opé­rations, dont le processus de déploie­ment n'était pas équipé pour gérer des changements fréquents. Ce problème a finalement abouti à l'interruption du développement.</p>
+          <p>L'institution financière souhaitait tout de même obtenir les bénéfices liés aux méthodologies de développement agile. Après avoir évalué soigneusement les nombreuses solutions, l'entreprise a remplacé ses méthodes de déploiement manuelles par IBM UrbanCode Deploy, qui a apporté de nombreux avantages&nbsp;:</p>
+          <ul class="ListeDVP">
+            <li>les délais de déploiement sont passés de trois jours à deux heures&nbsp;;</li>
+            <li>l'entreprise a économisé plus de 2 millions de dollars au cours de la seule première année en éliminant le coût des déploiements manuels&nbsp;;</li>
+            <li>l'entreprise a développé des applications conformes et a donné à ses équipes une option libre-service pour leur déploiement.</li>
+          </ul>
+        </div>
+      </div>
+      
+		<h3 class="TitreSection1" id="L4-3">4-3. Évaluer les solutions de coordination des déploiements<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Planifier, gérer et exécuter un déploiement d'application important s'effectue généralement à l'aide de feuilles de calcul ou de documents texte qui décrivent les tâches, leurs propriétaires et la séquence requise pour un déploiement réussi. Le problème avec cette méthode est qu'il n'existe aucun moyen de suivre qui a fait quoi, quel code a été déployé, où et quand il l'a été.</p>
+        <p>Les solutions de coordination des déploiements (release management) sont conçues pour aider à planifier et exécuter le déploiement d'une version en planifiant de façon collaborative les changements dans l'application ainsi que dans l'infrastructure. Idéalement, une solution doit fournir une visibilité complète sur le processus de déploiement, ainsi que des fonctionnalités de planification et d'exécution de bout en bout.</p>
+        <p>Vous devez rechercher une solution capable de réaliser les actions suivantes&nbsp;:</p>
+        <ul class="ListeDVP">
+          <li>rationaliser le lancement de plusieurs applications à la fois&nbsp;;</li>
+          <li>mettre à jour le plan de déploiement au fur et à mesure&nbsp;;</li>
+          <li>afficher la progression du déploiement en temps réel&nbsp;;</li>
+          <li>suivre les modifications dans les applications et l'infrastruc­ture&nbsp;;</li>
+          <li>notifier les parties prenantes de l'évolution des mises à jour des versions&nbsp;;</li>
+          <li>séquencer et coordonner les activités automatiques et manuelles dans le workflow de déploiement, toutes les dépendances au sein des activités, et toutes les communications associées aux personnes&nbsp;;</li>
+          <li>promouvoir automatiquement les applications qui remplissent les critères d'admission de qualité des environnements précédents.</li>
+        </ul>
+        <div class="imgtext-info">
+          <p>
+            <b>Déploiement réussi avec IBM UrbanCode Release</b>
+          </p>
+          <p>Une organisation à but non lucratif consacrait beaucoup trop de temps à la planification et la coordination du déploiement de ces applications. Les membres de l'équipe utilisaient des feuilles de calcul pour suivre les activités de lancement et se réunissaient de nombreuses fois pour passer en revue les plans et les modifications des plans. L'organisation souhaitait obtenir une meilleure visibilité sur les efforts liés au déploiement et réduire les temps de réunion lors du processus de déploiement. Elle a finalement sélectionné IBM UrbanCode Release, la première solution conçue spécialement pour la coordination des déploiements d'applications complexes. IBM UrbanCode Release a permis à l'organisation de réduire de 50 % le nombre de réunions lors du lancement, réduire la durée de chaque réunion de 50 %, et d'ajouter de la visibilité à l'ensemble du déploiement. Avant la fin du deuxième déploiement, les membres de l'équipe disposaient d'un bon processus de lancement. Avant la fin de la troisième exécution, le chef d'équipe qui avait mis en œuvre la solution maîtrisait tellement la solution qu'il est parti en vacances pendant la phase de déploiement.</p>
+        </div>
+        <p>Bien que cela ne soit pas nécessaire, il est conseillé d'utiliser une solution d'automatisation du déploiement avec votre solution de coordination des déploiements. Ensemble, elles permettent de lancer et suivre les déploiements automatisés de plusieurs applications.</p>
+      </div>
+    </div>
+    
+		<h2 class="TitreSection0" id="L5">5. Mettre en place la solution<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h2><div class="BlocSection0">
+      
+      <p>
+        <span class="italique">
+          <b>Dans ce chapitre</b>
+        </span>
+      </p>
+      <ul class="ListeDVP">
+        <li>Mettre en œuvre une solution d'automatisation du déploiement d'applications</li>
+        <li>Mettre en place une solution de coordination des déploiements</li>
+      </ul>
+      <p>Une fois que votre société a sélectionné les meilleures solutions de coordination et de déploiement d'applications pour répondre à ses besoins (voir Chapitre 4), il vous faut mettre en œuvre ces solutions. Ce chapitre vous donne quelques indications.</p>
+      
+		<h3 class="TitreSection1" id="L5-1">5-1. Mettre en œuvre une solution d'automatisation du déploiement d'applications<a class="HautPage" href="https://ibmcloud.developpez.com/tutoriels/developpement-applications/deploiements-applications-pour-les-nuls/#" title="Haut de page">▲</a></h3><div class="BlocSection1">
+        
+        <p>Comme nous l'évoquons dans le Chapitre 3, les objectifs de l'auto­matisation incluent la traçabilité et la visibilité via une solution qui assure le suivi d'un build (développement) à travers les phases du cycle de développement logiciel (SDLC). Les principaux composants d'un processus de développement robuste dans ce contexte sont un référentiel d'artefacts versionnés pour les builds terminés, et la gestion des dépendances pour les projets liés.</p>
+        <p>Un des moyens de conserver ces deux composants est de disposer d'un moteur d'intégration continue (CI)&nbsp;; l'autre moyen consiste à intégrer et suivre les builds manuellement. Avec une méthode d'intégration manuelle, vous devez versionner et conserver les builds dans un référentiel d'artefacts. Lorsque vous avez la visibilité sur ce que contient chaque build, et sur le moment où chaque artefact doit se redéployer si un problème survient dans un environnement, vous avez défini</p></div></div></section></div></section></article></div></section><iframe name="__tcfapiLocator" style="display: none;" src="./Le déploiement d&#39;applications pour les nuls_files/saved_resource.html"></iframe><iframe src="./Le déploiement d&#39;applications pour les nuls_files/cmpiframe.html" id="_qc_cookie_access" style="display: none;"></iframe></body><iframe id="goog_plcm_frame" src="./Le déploiement d&#39;applications pour les nuls_files/partnerpixels.html" style="display: none;"></iframe></html>
